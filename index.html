@@ -3,31 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Research 2.0 - Class 10/11/12 NCERT</title>
+  <title>Study Research 2.0 - NCERT AI</title>
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial;}
     body {background: #f5f5f5; padding-bottom: 80px;}
-   .header {background: white; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;}
-   .menu-btn {font-size: 24px; cursor: pointer; padding: 8px;}
-   .logo {font-weight: bold; font-size: 18px; color: #6a1b9a;}
-   .sidebar {position: fixed; left: -300px; top: 0; width: 300px; height: 100%; background: white; box-shadow: 2px 0 8px rgba(0,0,0,0.2); transition: 0.3s; z-index: 200; overflow-y: auto;}
-   .sidebar.active {left: 0;}
-   .sidebar-header {padding: 20px; background: #6a1b9a; color: white; font-weight: bold;}
-   .class-item {padding: 16px 20px; border-bottom: 1px solid #eee; cursor: pointer; font-weight: 600;}
-   .subject-list,.chapter-list {display: none;}
-   .subject-item {padding: 12px 20px 12px 35px; border-bottom: 1px solid #eee; cursor: pointer; background: #f9f9f9; font-weight: 500;}
-   .chapter-item {padding: 10px 20px 10px 50px; border-bottom: 1px solid #eee; cursor: pointer; background: #f3e5f5; font-size: 14px;}
-   .subject-item:hover,.chapter-item:hover,.class-item:hover {background: #e1bee7;}
-   .overlay {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 150;}
-   .overlay.active {display: block;}
-   .chat-area {padding: 16px; max-width: 800px; margin: auto;}
-   .content-box {background: white; padding: 20px; border-radius: 12px; margin: 16px 0;}
-   .btn {background: #6a1b9a; color: white; padding: 14px; text-align: center; border-radius: 8px; margin: 10px 0; cursor: pointer; font-weight: bold;}
-   .btn-green {background: #2e7d32;}
-   .answer-box {margin-top: 16px; padding: 16px; background: #f3e5f5; border-radius: 8px; line-height: 1.8; display: none;}
-   .chat-input {position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 12px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: flex; gap: 8px; max-width: 800px; margin: auto;}
-   .chat-input input {flex: 1; padding: 14px; border: 2px solid #6a1b9a; border-radius: 25px; font-size: 16px; outline: none;}
-   .chat-input button {background: #6a1b9a; color: white; border: none; padding: 0 20px; border-radius: 25px; font-weight: bold; cursor: pointer;}
+  .header {background: white; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;}
+  .menu-btn {font-size: 24px; cursor: pointer; padding: 8px;}
+  .logo {font-weight: bold; font-size: 18px; color: #6a1b9a;}
+  .sidebar {position: fixed; left: -300px; top: 0; width: 300px; height: 100%; background: white; box-shadow: 2px 0 8px rgba(0,0,0,0.2); transition: 0.3s; z-index: 200; overflow-y: auto;}
+  .sidebar.active {left: 0;}
+  .sidebar-header {padding: 20px; background: #6a1b9a; color: white; font-weight: bold;}
+  .class-item {padding: 16px 20px; border-bottom: 1px solid #eee; cursor: pointer; font-weight: 600;}
+  .subject-list,.chapter-list {display: none;}
+  .subject-item {padding: 12px 20px 12px 35px; border-bottom: 1px solid #eee; cursor: pointer; background: #f9f9f9;}
+  .chapter-item {padding: 10px 20px 10px 50px; border-bottom: 1px solid #eee; cursor: pointer; background: #f3e5f5; font-size: 14px;}
+  .overlay {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 150;}
+  .overlay.active {display: block;}
+  .chat-area {padding: 16px; max-width: 800px; margin: auto;}
+  .content-box {background: white; padding: 20px; border-radius: 12px; margin: 16px 0;}
+  .btn {background: #6a1b9a; color: white; padding: 14px; text-align: center; border-radius: 8px; margin: 10px 0; cursor: pointer; font-weight: bold;}
+  .btn-green {background: #2e7d32;}
+  .answer-box {margin-top: 16px; padding: 16px; background: #f3e5f5; border-radius: 8px; line-height: 1.6; display: none;}
+  .chat-input {position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 12px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: flex; gap: 8px; max-width: 800px; margin: auto;}
+  .chat-input input {flex: 1; padding: 14px; border: 2px solid #6a1b9a; border-radius: 25px; font-size: 16px; outline: none;}
+  .chat-input button {background: #6a1b9a; color: white; border: none; padding: 0 20px; border-radius: 25px; font-weight: bold; cursor: pointer;}
   </style>
 </head>
 <body>
@@ -40,117 +39,71 @@
   <div class="overlay" onclick="toggleSidebar()"></div>
   
   <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">NCERT 10th/11th/12th</div>
+    <div class="sidebar-header">NCERT 8th to 12th</div>
     
-    <!-- CLASS 10 -->
+    <div class="class-item" onclick="toggleList('class8')">Class 8th</div>
+    <div id="class8" class="subject-list">
+      <div class="subject-item" onclick="toggleList('c8-hindi')">Hindi</div>
+      <div id="c8-hindi" class="chapter-list">
+        <div class="chapter-item" onclick="loadChapter('Class 8 Hindi','Ch 1 - ध्वनि')">Ch 1 - ध्वनि</div>
+        <div class="chapter-item" onclick="loadChapter('Class 8 Hindi','Ch 2 - लाख की चूड़ियाँ')">Ch 2 - लाख की चूड़ियाँ</div>
+      </div>
+      <div class="subject-item" onclick="toggleList('c8-eng')">English</div>
+      <div id="c8-eng" class="chapter-list">
+        <div class="chapter-item" onclick="loadChapter('Class 8 English','Ch 1 - The Best Christmas Present')">Ch 1 - Best Christmas Present</div>
+      </div>
+      <div class="subject-item" onclick="toggleList('c8-sci')">Science</div>
+      <div id="c8-sci" class="chapter-list">
+        <div class="chapter-item" onclick="loadChapter('Class 8 Science','Ch 1 - Crop Production')">Ch 1 - Crop Production</div>
+      </div>
+      <div class="subject-item" onclick="toggleList('c8-math')">Maths</div>
+      <div id="c8-math" class="chapter-list">
+        <div class="chapter-item" onclick="loadChapter('Class 8 Maths','Ch 1 - Rational Numbers')">Ch 1 - Rational Numbers</div>
+      </div>
+    </div>
+
+    <div class="class-item" onclick="toggleList('class9')">Class 9th</div>
+    <div id="class9" class="subject-list">
+      <div class="subject-item" onclick="toggleList('c9-hindi')">Hindi</div>
+      <div id="c9-hindi" class="chapter-list">
+        <div class="chapter-item" onclick="loadChapter('Class 9 Hindi','Ch 1 - दो बैलों की कथा')">Ch 1 - दो बैलों की कथा</div>
+      </div>
+      <div class="subject-item" onclick="toggleList('c9-sci')">Science</div>
+      <div id="c9-sci" class="chapter-list">
+        <div class="chapter-item" onclick="loadChapter('Class 9 Science','Ch 1 - Matter in Our Surroundings')">Ch 1 - Matter in Our Surroundings</div>
+      </div>
+    </div>
+
     <div class="class-item" onclick="toggleList('class10')">Class 10th</div>
     <div id="class10" class="subject-list">
-      <div class="subject-item" onclick="toggleList('c10-hindi')">Hindi - Kshitij</div>
+      <div class="subject-item" onclick="toggleList('c10-hindi')">Hindi</div>
       <div id="c10-hindi" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 1 - सूरदास')">Ch 1 - सूरदास</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 2 - राम-लक्ष्मण')">Ch 2 - राम-लक्ष्मण</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 3 - सवैया')">Ch 3 - सवैया</div>
+        <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 1 - सूरदास के पद')">Ch 1 - सूरदास के पद</div>
       </div>
-      <div class="subject-item" onclick="toggleList('c10-hgram')">Hindi Grammar</div>
-      <div id="c10-hgram" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','संधि')">संधि</div>
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','समास')">समास</div>
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','अलंकार')">अलंकार</div>
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','रस')">रस</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c10-eng')">English - First Flight</div>
+      <div class="subject-item" onclick="toggleList('c10-eng')">English</div>
       <div id="c10-eng" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 10 English','Ch 1 - A Letter to God')">Ch 1 - A Letter to God</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 English','Ch 2 - Nelson Mandela')">Ch 2 - Nelson Mandela</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c10-egram')">English Grammar</div>
-      <div id="c10-egram" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Tenses')">Tenses</div>
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Active Passive')">Active Passive Voice</div>
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Direct Indirect')">Direct Indirect Speech</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c10-math')">Maths</div>
-      <div id="c10-math" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 10 Maths','Ch 1 - Real Numbers')">Ch 1 - Real Numbers</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Maths','Ch 2 - Polynomials')">Ch 2 - Polynomials</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Maths','Ch 3 - Pair of Linear Equations')">Ch 3 - Linear Equations</div>
       </div>
       <div class="subject-item" onclick="toggleList('c10-sci')">Science</div>
       <div id="c10-sci" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 1 - Chemical Reactions')">Ch 1 - Chemical Reactions</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 2 - Acids Bases')">Ch 2 - Acids Bases Salts</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 6 - Life Processes')">Ch 6 - Life Processes</div>
       </div>
-      <div class="subject-item" onclick="toggleList('c10-sst')">Social Science</div>
     </div>
 
-    <!-- CLASS 11 -->
     <div class="class-item" onclick="toggleList('class11')">Class 11th</div>
     <div id="class11" class="subject-list">
-      <div class="subject-item" onclick="toggleList('c11-hindi')">Hindi - Aroh</div>
-      <div id="c11-hindi" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 11 Hindi','Ch 1 - नमक का दारोगा')">Ch 1 - नमक का दारोगा</div>
-        <div class="chapter-item" onclick="loadChapter('Class 11 Hindi','Ch 2 - मियाँ नसीरुद्दीन')">Ch 2 - मियाँ नसीरुद्दीन</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c11-hgram')">Hindi Grammar</div>
-      <div id="c11-hgram" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','संधि')">संधि</div>
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','समास')">समास</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c11-eng')">English - Hornbill</div>
-      <div id="c11-eng" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 11 English','Ch 1 - The Portrait of a Lady')">Ch 1 - Portrait of a Lady</div>
-        <div class="chapter-item" onclick="loadChapter('Class 11 English','Ch 2 - We are not afraid')">Ch 2 - We are not afraid</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c11-egram')">English Grammar</div>
-      <div id="c11-egram" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Tenses')">Tenses</div>
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Modals')">Modals</div>
-      </div>
       <div class="subject-item" onclick="toggleList('c11-phy')">Physics</div>
       <div id="c11-phy" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 11 Physics','Ch 1 - Physical World')">Ch 1 - Physical World</div>
-        <div class="chapter-item" onclick="loadChapter('Class 11 Physics','Ch 2 - Units Measurement')">Ch 2 - Units Measurement</div>
       </div>
-      <div class="subject-item" onclick="toggleList('c11-chem')">Chemistry</div>
-      <div class="subject-item" onclick="toggleList('c11-math')">Maths</div>
-      <div class="subject-item" onclick="toggleList('c11-bio')">Biology</div>
     </div>
 
-    <!-- CLASS 12 -->
     <div class="class-item" onclick="toggleList('class12')">Class 12th</div>
     <div id="class12" class="subject-list">
-      <div class="subject-item" onclick="toggleList('c12-hindi')">Hindi - Aroh</div>
-      <div id="c12-hindi" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 12 Hindi','Ch 1 - हरिवंश राय बच्चन')">Ch 1 - आत्मपरिचय</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 Hindi','Ch 2 - आलोक धन्वा')">Ch 2 - पतंग</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c12-hgram')">Hindi Grammar</div>
-      <div id="c12-hgram" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','संधि')">संधि</div>
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','समास')">समास</div>
-        <div class="chapter-item" onclick="loadChapter('Hindi Grammar','मुहावरे')">मुहावरे</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c12-eng')">English - Flamingo</div>
+      <div class="subject-item" onclick="toggleList('c12-eng')">English</div>
       <div id="c12-eng" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 12 English','Ch 1 - My Mother at Sixty Six')">Ch 1 - My Mother at Sixty Six</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 English','Ch 2 - The Last Lesson')">Ch 2 - The Last Lesson</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 English','Ch 3 - Deep Water')">Ch 3 - Deep Water</div>
       </div>
-      <div class="subject-item" onclick="toggleList('c12-egram')">English Grammar</div>
-      <div id="c12-egram" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Tenses')">Tenses</div>
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Active Passive')">Active Passive</div>
-        <div class="chapter-item" onclick="loadChapter('English Grammar','Direct Indirect')">Direct Indirect</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c12-phy')">Physics</div>
-      <div id="c12-phy" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 12 Physics','Ch 1 - Electric Charges')">Ch 1 - Electric Charges</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 Physics','Ch 2 - Electrostatic Potential')">Ch 2 - Electrostatic Potential</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c12-chem')">Chemistry</div>
-      <div class="subject-item" onclick="toggleList('c12-math')">Maths</div>
-      <div class="subject-item" onclick="toggleList('c12-bio')">Biology</div>
     </div>
   </div>
 
@@ -158,7 +111,7 @@
     <div class="content-box" id="welcome">
       <h2 style="color:#6a1b9a;">Study Research 2.0 AI</h2>
       <p style="color: #666; margin-top: 8px;">☰ Menu dabao ya neeche sawal likho</p>
-      <p style="color: #666; margin-top: 4px;">Class 10th, 11th, 12th + Hindi/English Grammar</p>
+      <p style="color: #666; margin-top: 4px;">NCERT 8th to 12th - All Subjects</p>
     </div>
 
     <div class="content-box" id="content" style="display:none;">
@@ -173,50 +126,89 @@
   </div>
 
   <div class="chat-input">
-    <input type="text" id="userQ" placeholder="Sawal pucho... e.g. Tense kya hota hai?">
+    <input type="text" id="userQ" placeholder="Koi bhi sawal pucho... e.g. Newton ke laws kya hai?">
     <button onclick="askQuestion()">Ask</button>
   </div>
 
   <script>
     const notesData = {
-      // CLASS 10
-      "Class 10 Hindi|Ch 1 - सूरदास": {
-        imp: "1. सूरदास के पदों में वात्सल्य रस कैसे है?<br>2. 'मैया कबहिं बढ़ैगी चोटी' का भाव लिखो।<br>3. सूरदास की भाषा की विशेषता बताओ।",
-        mcq: "1. सूरदास किसके भक्त थे?<br>a) राम b) कृष्ण c) शिव<br><b>Ans: b) कृष्ण</b><br><br>2. सूरदास किस काल के कवि हैं?<br>a) भक्तिकाल b) रीतिकाल<br><b>Ans: a) भक्तिकाल</b>",
-        summary: "सूरदास ने श्रीकृष्ण की बाल लीलाओं का वर्णन किया है। यशोदा का कृष्ण के प्रति प्रेम वात्सल्य रस का सुंदर उदाहरण है। ब्रजभाषा में रचना की है।"
+      "Class 8 Hindi|Ch 1 - ध्वनि": {
+        imp: "1. कवि ने प्रकृति के किन रूपों का वर्णन किया है?<br>2. 'ध्वनि' कविता का केंद्रीय भाव लिखिए।<br>3. कविता में कौन-कौन सी ध्वनियाँ सुनाई देती हैं?",
+        mcq: "1. 'ध्वनि' कविता के कवि कौन हैं?<br>a) सूर्यकांत त्रिपाठी 'निराला' b) सुमित्रानंदन पंत<br><b>Ans: a) सूर्यकांत त्रिपाठी 'निराला'</b>",
+        summary: "इस कविता में कवि ने वर्षा ऋतु में प्रकृति की विभिन्न ध्वनियों का सुंदर वर्णन किया है। बादल गरजना, बिजली चमकना, हवा चलना, पत्तों का खड़खड़ाना आदि ध्वनियों से कविता जीवंत हो उठी है।"
+      },
+      "Class 8 Science|Ch 1 - Crop Production": {
+        imp: "1. What are Kharif and Rabi crops? Give 2 examples each.<br>2. Define irrigation. Name 2 traditional methods.<br>3. What is weeding? Why is it necessary?",
+        mcq: "1. Which is a Rabi crop?<br>a) Rice b) Wheat c) Maize d) Cotton<br><b>Ans: b) Wheat</b>",
+        summary: "Crop production involves soil preparation, sowing, irrigation, weeding, harvesting and storage. Kharif crops: Paddy, Maize. Rabi crops: Wheat, Gram."
       },
       "Class 10 Science|Ch 1 - Chemical Reactions": {
-        imp: "1. Balanced equation क्यों जरूरी है?<br>2. Combination और Decomposition reaction में अंतर लिखो।<br>3. Rancidity क्या है? रोकने के 2 तरीके लिखो।",
-        mcq: "1. 2Mg + O2 → 2MgO कौन सी अभिक्रिया है?<br>a) Combination b) Displacement<br><b>Ans: a) Combination</b><br><br>2. Fe + CuSO4 → FeSO4 + Cu में कौन अधिक क्रियाशील है?<br>a) Fe b) Cu<br><b>Ans: a) Fe</b>",
-        summary: "रासायनिक अभिक्रिया में नए पदार्थ बनते हैं। प्रकार: संयोजन, वियोजन, विस्थापन, द्विविस्थापन, उपचयन-अपचयन। समीकरण संतुलित करना जरूरी है।"
+        imp: "1. What is a balanced chemical equation? Why should it be balanced?<br>2. Give 2 examples of decomposition reactions.<br>3. What is rancidity? How can it be prevented?",
+        mcq: "1. 2H2 + O2 → 2H2O is which type?<br>a) Combination b) Decomposition c) Displacement<br><b>Ans: a) Combination</b>",
+        summary: "Chemical reactions involve breaking and making of bonds. Types: Combination, Decomposition, Displacement, Double Displacement, Redox. Exothermic reactions release heat."
       },
-      "Class 10 Maths|Ch 1 - Real Numbers": {
-        imp: "1. Euclid Division Lemma state करो।<br>2. Prove करो कि √2 irrational है।<br>3. HCF और LCM का relation लिखो।",
-        mcq: "1. HCF(26,91) = ?<br>a) 13 b) 26<br><b>Ans: a) 13</b><br><br>2. Every composite number can be expressed as product of?<br>a) Primes b) Evens<br><b>Ans: a) Primes</b>",
-        summary: "Euclid Division Lemma: a = bq + r. Fundamental Theorem: हर composite number primes के product के रूप में लिखा जा सकता है। HCF × LCM = a × b."
-      },
-      // CLASS 11
-      "Class 11 Physics|Ch 1 - Physical World": {
-        imp: "1. Physics का scope क्या है?<br>2. Fundamental forces कौन सी हैं?<br>3. Technology और Physics का relation बताओ।",
-        mcq: "1. Strongest fundamental force?<br>a) Gravitational b) Strong Nuclear<br><b>Ans: b) Strong Nuclear</b>",
-        summary: "Physics प्रकृति का अध्ययन है। 4 fundamental forces: Gravitational, Electromagnetic, Strong Nuclear, Weak Nuclear. Technology physics के laws पर based है।"
-      },
-      "Class 11 English|Ch 1 - The Portrait of a Lady": {
-        imp: "1. Describe grandmother's appearance.<br>2. How did grandmother spend her time in city?<br>3. Why was grandmother disturbed by music lessons?",
-        mcq: "1. Who wrote this?<br>a) Khushwant Singh b) R.K. Narayan<br><b>Ans: a) Khushwant Singh</b>",
-        summary: "Author describes his grandmother. She was old, religious, kind. In village they were close. In city gap increased. She loved sparrows. Died peacefully."
-      },
-      // CLASS 12
       "Class 12 English|Ch 1 - My Mother at Sixty Six": {
-        imp: "1. What is 'familiar ache'?<br>2. Why 'young trees sprinting'?<br>3. Explain the last line 'smile and smile'.",
-        mcq: "1. Poet?<br>a) Kamala Das b) Robert Frost<br><b>Ans: a) Kamala Das</b>",
-        summary: "Poet driving to airport with mother. Sees mother old, pale like corpse. Fear of loss. Outside sees young trees, children. Hides pain with smile."
-      },
-      "Class 12 Physics|Ch 1 - Electric Charges": {
-        imp: "1. State Coulomb's law.<br>2. What is quantization of charge?<br>3. Define electric field. Write SI unit.",
-        mcq: "1. SI unit of charge?<br>a) Coulomb b) Ampere<br><b>Ans: a) Coulomb</b>",
-        summary: "Charge: positive/negative. Coulomb's law: F = kq1q2/r². Charge is quantized: q = ne. Electric field: E = F/q. Field lines start at +ve end at -ve."
-      },
-      // GRAMMAR
-      "Hindi Grammar|संधि": {
-        imp: "1. संधि कितने प्रकार की
+        imp: "1. What is the central theme of the poem?<br>2. Explain 'familiar ache'.<br>3. What does 'young trees sprinting' signify?",
+        mcq: "1. Who is the poet?<br>a) Kamala Das b) Robert Frost c) John Keats<br><b>Ans: a) Kamala Das</b>",
+        summary: "The poet drives to airport with her 66-year old mother. She notices her mother's pale face and feels the old fear of losing her. She looks outside at young trees and children to distract herself. At airport she smiles to hide her pain."
+      }
+    };
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('active');
+      document.querySelector('.overlay').classList.toggle('active');
+    }
+
+    function toggleList(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === 'block'? 'none' : 'block';
+    }
+
+    function loadChapter(subject, chapter) {
+      toggleSidebar();
+      document.getElementById('welcome').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      document.getElementById('chapter-title').innerText = subject + ' - ' + chapter;
+      document.getElementById('answer').style.display = 'none';
+      window.currentChapter = subject + '|' + chapter;
+    }
+
+    function showAnswer(type) {
+      const answer = document.getElementById('answer');
+      const data = notesData[window.currentChapter];
+      if(data && data[type]) {
+        answer.innerHTML = '<b>' + type.toUpperCase() + ':</b><br><br>' + data[type];
+        answer.style.display = 'block';
+      } else {
+        answer.innerHTML = '<b>Content Coming Soon!</b><br>Is chapter ka content abhi add kar rahe hain. Telegram join karo @StudyResearch2_0';
+        answer.style.display = 'block';
+      }
+    }
+
+    function askQuestion() {
+      const q = document.getElementById('userQ').value.toLowerCase();
+      if(!q) return;
+      let ans = 'Ye sawal ka jawab database me nahi hai. ☰ Menu se Class → Subject → Chapter select karo ya Telegram @StudyResearch2_0 pe pucho.';
+      
+      if(q.includes('newton') || q.includes('law')) {
+        ans = '<b>Newton ke 3 Laws:</b><br>1. Inertia: Object rest/motion me rahega jab tak force na lage<br>2. F = ma<br>3. Action-Reaction equal & opposite. Detail ke liye Class 9 Science kholo.';
+      } else if(q.includes('photo') || q.includes('prkash')) {
+        ans = '<b>Photosynthesis:</b><br>Plants sunlight + CO2 + water se food banate hain.<br>6CO2 + 6H2O → C6H12O6 + 6O2<br>Class 10 Science Ch 6 dekho.';
+      } else if(q.includes('hello') || q.includes('hi')) {
+        ans = 'Hello! NCERT ka koi bhi sawal pucho ya ☰ Menu se chapter select karo.';
+      }
+      
+      document.getElementById('welcome').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      document.getElementById('chapter-title').innerText = 'AI Answer';
+      document.getElementById('answer').innerHTML = ans;
+      document.getElementById('answer').style.display = 'block';
+      document.getElementById('userQ').value = '';
+    }
+
+    document.getElementById('userQ').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') askQuestion();
+    });
+  </script>
+</body>
+      </html>
