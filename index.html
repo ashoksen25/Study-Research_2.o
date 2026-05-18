@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Research 2.0 - Full NCERT</title>
+  <title>Study Research 2.0</title>
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial;}
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
     body {background: #f5f5f5; padding-bottom: 80px;}
-.header {background: white; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;}
-.menu-btn {font-size: 24px; cursor: pointer; padding: 8px;}
-.logo {font-weight: bold; font-size: 18px; color: #6a1b9a;}
-.sidebar {position: fixed; left: -300px; top: 0; width: 300px; height: 100%; background: white; box-shadow: 2px 0 8px rgba(0,0,0,0.2); transition: 0.3s; z-index: 200; overflow-y: auto;}
-.sidebar.active {left: 0;}
-.sidebar-header {padding: 20px; background: #6a1b9a; color: white; font-weight: bold;}
-.class-item {padding: 16px 20px; border-bottom: 1px solid #eee; cursor: pointer; font-weight: 600;}
-.subject-list,.chapter-list {display: none;}
-.subject-item {padding: 12px 20px 12px 35px; border-bottom: 1px solid #eee; cursor: pointer; background: #f9f9f9;}
-.chapter-item {padding: 10px 20px 10px 50px; border-bottom: 1px solid #eee; cursor: pointer; background: #f3e5f5; font-size: 14px;}
-.overlay {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 150;}
-.overlay.active {display: block;}
-.chat-area {padding: 16px; max-width: 800px; margin: auto;}
-.content-box {background: white; padding: 20px; border-radius: 12px; margin: 16px 0;}
-.btn {background: #6a1b9a; color: white; padding: 14px; text-align: center; border-radius: 8px; margin: 10px 0; cursor: pointer; font-weight: bold;}
-.btn-green {background: #2e7d32;}
-.answer-box {margin-top: 16px; padding: 16px; background: #f3e5f5; border-radius: 8px; line-height: 1.6; display: none; white-space: pre-line;}
-.chat-input {position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 12px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: flex; gap: 8px; max-width: 800px; margin: auto;}
-.chat-input input {flex: 1; padding: 14px; border: 2px solid #6a1b9a; border-radius: 25px; font-size: 16px; outline: none;}
-.chat-input button {background: #6a1b9a; color: white; border: none; padding: 0 20px; border-radius: 25px; font-weight: bold; cursor: pointer;}
-.ad-popup {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 300; display: none; text-align: center; width: 90%; max-width: 350px;}
+   .header {background: white; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;}
+   .menu-btn {font-size: 24px; cursor: pointer; padding: 8px; border: none; background: none;}
+   .logo {font-weight: bold; font-size: 18px; color: #6a1b9a;}
+   .sidebar {position: fixed; left: -300px; top: 0; width: 300px; height: 100%; background: white; box-shadow: 2px 0 8px rgba(0,0,0,0.2); transition: 0.3s; z-index: 200; overflow-y: auto;}
+   .sidebar.active {left: 0;}
+   .sidebar-header {padding: 20px; background: #6a1b9a; color: white; font-weight: bold;}
+   .class-item {padding: 16px 20px; border-bottom: 1px solid #eee; cursor: pointer; font-weight: 600;}
+   .subject-list,.chapter-list {display: none;}
+   .subject-item {padding: 12px 20px 12px 35px; border-bottom: 1px solid #eee; cursor: pointer; background: #f9f9f9;}
+   .chapter-item {padding: 10px 20px 10px 50px; border-bottom: 1px solid #eee; cursor: pointer; background: #f3e5f5; font-size: 14px;}
+   .overlay {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 150;}
+   .overlay.active {display: block;}
+   .chat-area {padding: 16px; max-width: 800px; margin: auto;}
+   .content-box {background: white; padding: 20px; border-radius: 12px; margin: 16px 0;}
+   .btn {background: #6a1b9a; color: white; padding: 14px; text-align: center; border-radius: 8px; margin: 10px 0; cursor: pointer; font-weight: bold; border: none; width: 100%;}
+   .btn-green {background: #2e7d32;}
+   .answer-box {margin-top: 16px; padding: 16px; background: #f3e5f5; border-radius: 8px; line-height: 1.6; display: none;}
+   .chat-input {position: fixed; bottom: 0; left: 0; right: 0; background: white; padding: 12px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); display: flex; gap: 8px; max-width: 800px; margin: auto;}
+   .chat-input input {flex: 1; padding: 14px; border: 2px solid #6a1b9a; border-radius: 25px; font-size: 16px; outline: none;}
+   .chat-input button {background: #6a1b9a; color: white; border: none; padding: 0 20px; border-radius: 25px; font-weight: bold; cursor: pointer;}
+   .ad-popup {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); z-index: 300; display: none; text-align: center; width: 90%; max-width: 350px;}
   </style>
 </head>
 <body>
   <div class="header">
-    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
     <div class="logo">Study Research 2.0</div>
     <div style="width: 40px;"></div>
   </div>
@@ -40,99 +40,54 @@
   <div class="overlay" onclick="toggleSidebar()"></div>
   
   <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">NCERT 9th, 10th, 12th - FULL</div>
+    <div class="sidebar-header">NCERT 9th, 10th, 12th</div>
     
-    <!-- CLASS 9 -->
     <div class="class-item" onclick="toggleList('class9')">Class 9th</div>
     <div id="class9" class="subject-list">
       <div class="subject-item" onclick="toggleList('c9-hindi')">Hindi - Kshitij</div>
       <div id="c9-hindi" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 9 Hindi','Ch 1 - दो बैलों की कथा')">Ch 1 - दो बैलों की कथा</div>
         <div class="chapter-item" onclick="loadChapter('Class 9 Hindi','Ch 2 - ल्हासा की ओर')">Ch 2 - ल्हासा की ओर</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Hindi','Ch 3 - उपभोक्तावाद की संस्कृति')">Ch 3 - उपभोक्तावाद की संस्कृति</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Hindi','Ch 4 - साँवले सपनों की याद')">Ch 4 - साँवले सपनों की याद</div>
       </div>
       <div class="subject-item" onclick="toggleList('c9-sci')">Science</div>
       <div id="c9-sci" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 9 Science','Ch 1 - Matter in Our Surroundings')">Ch 1 - Matter in Our Surroundings</div>
         <div class="chapter-item" onclick="loadChapter('Class 9 Science','Ch 2 - Is Matter Around Us Pure')">Ch 2 - Is Matter Around Us Pure</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Science','Ch 3 - Atoms and Molecules')">Ch 3 - Atoms and Molecules</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Science','Ch 4 - Structure of Atom')">Ch 4 - Structure of Atom</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Science','Ch 8 - Motion')">Ch 8 - Motion</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Science','Ch 9 - Force and Laws of Motion')">Ch 9 - Force and Laws of Motion</div>
       </div>
       <div class="subject-item" onclick="toggleList('c9-math')">Maths</div>
       <div id="c9-math" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 9 Maths','Ch 1 - Number Systems')">Ch 1 - Number Systems</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Maths','Ch 2 - Polynomials')">Ch 2 - Polynomials</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 Maths','Ch 3 - Coordinate Geometry')">Ch 3 - Coordinate Geometry</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c9-sst')">Social Science</div>
-      <div id="c9-sst" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 9 SST','Ch 1 - The French Revolution')">Ch 1 - The French Revolution</div>
-        <div class="chapter-item" onclick="loadChapter('Class 9 SST','Ch 2 - Socialism in Europe')">Ch 2 - Socialism in Europe</div>
       </div>
     </div>
 
-    <!-- CLASS 10 -->
     <div class="class-item" onclick="toggleList('class10')">Class 10th</div>
     <div id="class10" class="subject-list">
       <div class="subject-item" onclick="toggleList('c10-hindi')">Hindi - Kshitij</div>
       <div id="c10-hindi" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 1 - सूरदास के पद')">Ch 1 - सूरदास के पद</div>
         <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 2 - राम-लक्ष्मण-परशुराम संवाद')">Ch 2 - राम-लक्ष्मण-परशुराम संवाद</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 3 - सवैया व कवित्त')">Ch 3 - सवैया व कवित्त</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Hindi','Ch 9 - आत्मकथ्य')">Ch 9 - आत्मकथ्य</div>
       </div>
       <div class="subject-item" onclick="toggleList('c10-sci')">Science</div>
       <div id="c10-sci" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 1 - Chemical Reactions')">Ch 1 - Chemical Reactions</div>
         <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 2 - Acids, Bases and Salts')">Ch 2 - Acids, Bases and Salts</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 3 - Metals and Non-metals')">Ch 3 - Metals and Non-metals</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 6 - Life Processes')">Ch 6 - Life Processes</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Science','Ch 10 - Light')">Ch 10 - Light</div>
       </div>
       <div class="subject-item" onclick="toggleList('c10-math')">Maths</div>
       <div id="c10-math" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 10 Maths','Ch 1 - Real Numbers')">Ch 1 - Real Numbers</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Maths','Ch 2 - Polynomials')">Ch 2 - Polynomials</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Maths','Ch 3 - Pair of Linear Equations')">Ch 3 - Pair of Linear Equations</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 Maths','Ch 8 - Introduction to Trigonometry')">Ch 8 - Trigonometry</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c10-eng')">English - First Flight</div>
-      <div id="c10-eng" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 10 English','Ch 1 - A Letter to God')">Ch 1 - A Letter to God</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 English','Ch 2 - Nelson Mandela')">Ch 2 - Nelson Mandela</div>
-        <div class="chapter-item" onclick="loadChapter('Class 10 English','Ch 3 - Two Stories about Flying')">Ch 3 - Two Stories about Flying</div>
       </div>
     </div>
 
-    <!-- CLASS 12 -->
     <div class="class-item" onclick="toggleList('class12')">Class 12th</div>
     <div id="class12" class="subject-list">
       <div class="subject-item" onclick="toggleList('c12-eng')">English - Flamingo</div>
       <div id="c12-eng" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 12 English','Ch 1 - My Mother at Sixty Six')">Ch 1 - My Mother at Sixty Six</div>
         <div class="chapter-item" onclick="loadChapter('Class 12 English','Ch 2 - The Last Lesson')">Ch 2 - The Last Lesson</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 English','Ch 3 - Lost Spring')">Ch 3 - Lost Spring</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 English','Ch 4 - Deep Water')">Ch 4 - Deep Water</div>
       </div>
       <div class="subject-item" onclick="toggleList('c12-phy')">Physics</div>
       <div id="c12-phy" class="chapter-list">
         <div class="chapter-item" onclick="loadChapter('Class 12 Physics','Ch 1 - Electric Charges and Fields')">Ch 1 - Electric Charges and Fields</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 Physics','Ch 2 - Electrostatic Potential')">Ch 2 - Electrostatic Potential</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 Physics','Ch 3 - Current Electricity')">Ch 3 - Current Electricity</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c12-chem')">Chemistry</div>
-      <div id="c12-chem" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 12 Chemistry','Ch 1 - Solutions')">Ch 1 - Solutions</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 Chemistry','Ch 2 - Electrochemistry')">Ch 2 - Electrochemistry</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 Chemistry','Ch 3 - Chemical Kinetics')">Ch 3 - Chemical Kinetics</div>
-      </div>
-      <div class="subject-item" onclick="toggleList('c12-bio')">Biology</div>
-      <div id="c12-bio" class="chapter-list">
-        <div class="chapter-item" onclick="loadChapter('Class 12 Biology','Ch 1 - Reproduction in Organisms')">Ch 1 - Reproduction in Organisms</div>
-        <div class="chapter-item" onclick="loadChapter('Class 12 Biology','Ch 2 - Sexual Reproduction in Flowering Plants')">Ch 2 - Sexual Reproduction in Flowering Plants</div>
       </div>
     </div>
   </div>
@@ -146,10 +101,10 @@
 
     <div class="content-box" id="content" style="display:none;">
       <h3 id="chapter-title" style="color:#6a1b9a;"></h3>
-      <div class="btn" onclick="showAd('imp')">📝 IMP Questions</div>
-      <div class="btn" onclick="showAd('mcq')">✅ MCQ Questions</div>
-      <div class="btn" onclick="showAd('summary')">📖 Full Chapter Summary</div>
-      <div class="btn btn-green" onclick="showAd('pdf')">📥 Complete PDF - ₹29 Only</div>
+      <button class="btn" onclick="showAd('imp')">📝 IMP Questions</button>
+      <button class="btn" onclick="showAd('mcq')">✅ MCQ Questions</button>
+      <button class="btn" onclick="showAd('summary')">📖 Full Chapter Summary</button>
+      <button class="btn btn-green" onclick="showAd('pdf')">📥 Complete PDF - ₹29 Only</button>
       <div id="answer" class="answer-box"></div>
     </div>
   </div>
@@ -157,8 +112,8 @@
   <div class="ad-popup" id="adPopup">
     <h3>🔓 Unlock Content</h3>
     <p style="margin: 15px 0;">15 second ad dekho ya ₹29 me PDF lo</p>
-    <div class="btn" onclick="unlockContent()">▶️ Ad Dekho - Free Unlock</div>
-    <div class="btn btn-green" onclick="alert('UPI: ashok@paytm - Payment ke baad Telegram @StudyResearch2_0 pe PDF bhejo')">💳 ₹29 Pay & Download</div>
+    <button class="btn" onclick="unlockContent()">▶️ Ad Dekho - Free Unlock</button>
+    <button class="btn btn-green" onclick="alert('UPI: ashok@paytm - Payment ke baad Telegram pe PDF bhejo')">💳 ₹29 Pay & Download</button>
     <div style="margin-top:10px; font-size:12px; color:#666; cursor:pointer;" onclick="closeAd()">Cancel</div>
   </div>
 
@@ -168,52 +123,37 @@
   </div>
 
   <script>
-    // BHAI YAHAN 50+ CHAPTERS KA DATA HAI - ABHI KE LIYE MAIN 15 CHAPTERS KA DAAL RAHA HU
-    // BAAKI TU KHUD ADD KAR LENA YA MUJHE BOL "BHAI CLASS 10 SCIENCE KE BAAKI CHAPTER BHEJ"
     const notesData = {
       "Class 9 Hindi|Ch 1 - दो बैलों की कथा": {
-        imp: "1. हीरा और मोती की मित्रता की क्या विशेषताएँ थीं?\n2. गया ने बैलों के साथ कैसा व्यवहार किया?\n3. झूरी के साले के यहाँ बैलों की क्या दशा हुई?\n4. कहानी का उद्देश्य क्या है?\n5. प्रेमचंद की भाषा-शैली की विशेषताएँ लिखिए।",
-        mcq: "1. 'दो बैलों की कथा' के लेखक कौन हैं?\na) प्रेमचंद b) जयशंकर प्रसाद c) महादेवी वर्मा\n<b>Ans: a) प्रेमचंद</b>\n\n2. हीरा-मोती किसके बैल थे?\na) गया b) झूरी c) कांजी\n<b>Ans: b) झूरी</b>\n\n3. गया का स्वभाव कैसा था?\na) दयालु b) निर्दयी c) लालची\n<b>Ans: b) निर्दयी</b>",
-        summary: "प्रेमचंद की यह कहानी हीरा-मोती नामक दो बैलों की अटूट मित्रता और स्वामीभक्ति की है। झूरी का साला गया बहुत निर्दयी था। वह बैलों को भूखा रखता और मारता था। एक दिन मौका पाकर दोनों बैल भाग निकले और कई कठिनाइयों के बाद अपने मालिक झूरी के पास लौट आए। यह कहानी पशु-प्रेम, वफादारी और मानवीय संवेदना का संदेश देती है।"
+        imp: "1. हीरा और मोती की मित्रता की क्या विशेषताएँ थीं?<br>2. गया ने बैलों के साथ कैसा व्यवहार किया?<br>3. झूरी के साले के यहाँ बैलों की क्या दशा हुई?<br>4. कहानी का उद्देश्य क्या है?",
+        mcq: "1. 'दो बैलों की कथा' के लेखक कौन हैं?<br>a) प्रेमचंद b) जयशंकर प्रसाद c) महादेवी वर्मा<br><b>Ans: a) प्रेमचंद</b><br><br>2. हीरा-मोती किसके बैल थे?<br>a) गया b) झूरी c) कांजी<br><b>Ans: b) झूरी</b>",
+        summary: "प्रेमचंद की यह कहानी हीरा-मोती नामक दो बैलों की अटूट मित्रता और स्वामीभक्ति की है। झूरी का साला गया बहुत निर्दयी था। वह बैलों को भूखा रखता और मारता था। अंत में दोनों बैल भागकर अपने मालिक झूरी के पास लौट आते हैं। यह कहानी पशु-प्रेम और वफादारी का संदेश देती है।"
       },
       "Class 9 Science|Ch 1 - Matter in Our Surroundings": {
-        imp: "1. Define matter. What are its characteristics?\n2. Why does ice float on water?\n3. What is latent heat of fusion?\n4. Why do we feel cool when we sit under a fan?\n5. Differentiate between boiling and evaporation.",
-        mcq: "1. Which state has highest kinetic energy?\na) Solid b) Liquid c) Gas\n<b>Ans: c) Gas</b>\n\n2. Boiling point of water?\na) 0°C b) 100°C c) 50°C\n<b>Ans: b) 100°C</b>\n\n3. Dry ice is?\na) Solid CO2 b) Solid H2O c) Solid O2\n<b>Ans: a) Solid CO2</b>",
-        summary: "Matter exists in 3 states: Solid, Liquid, Gas. Particles have space between them, are continuously moving, and attract each other. Change of state occurs by changing temperature/pressure. Evaporation causes cooling. Latent heat is heat required to change state without temperature change. Sublimation: Solid to gas directly."
-      },
-      "Class 9 Science|Ch 9 - Force and Laws of Motion": {
-        imp: "1. State Newton's three laws of motion with examples.\n2. Define inertia. What are its types?\n3. Why do passengers fall forward when bus stops suddenly?\n4. Derive F = ma.\n5. What is conservation of momentum?",
-        mcq: "1. SI unit of force?\na) Joule b) Newton c) Watt\n<b>Ans: b) Newton</b>\n\n2. Action-reaction forces act on?\na) Same body b) Different bodies\n<b>Ans: b) Different bodies</b>",
-        summary: "First Law: Object remains in rest/motion unless acted by external force. Inertia: Natural tendency to resist change. Second Law: F = ma. Third Law: Every action has equal & opposite reaction. Momentum: p = mv. Conservation: Total momentum before collision = after collision if no external force."
+        imp: "1. Define matter. What are its characteristics?<br>2. Why does ice float on water?<br>3. What is latent heat of fusion?<br>4. Why do we feel cool when we sit under a fan?",
+        mcq: "1. Which state has highest kinetic energy?<br>a) Solid b) Liquid c) Gas<br><b>Ans: c) Gas</b><br><br>2. Boiling point of water?<br>a) 0°C b) 100°C c) 50°C<br><b>Ans: b) 100°C</b>",
+        summary: "Matter exists in 3 states: Solid, Liquid, Gas. Particles have space between them, are continuously moving, and attract each other. Change of state occurs by changing temperature/pressure. Evaporation causes cooling because particles take energy from surroundings."
       },
       "Class 10 Science|Ch 1 - Chemical Reactions": {
-        imp: "1. What is a balanced chemical equation? Why should it be balanced?\n2. Give 2 examples of decomposition reactions.\n3. What is rancidity? How can it be prevented?\n4. Why do silver articles turn black?\n5. What is corrosion? Give prevention methods.",
-        mcq: "1. 2H2 + O2 → 2H2O is which type?\na) Combination b) Decomposition\n<b>Ans: a) Combination</b>\n\n2. Formula of rust?\na) Fe2O3 b) Fe2O3.xH2O\n<b>Ans: b) Fe2O3.xH2O</b>\n\n3. Respiration is?\na) Exothermic b) Endothermic\n<b>Ans: a) Exothermic</b>",
-        summary: "Chemical reactions involve breaking and making of bonds. Types: 1) Combination: A+B→AB 2) Decomposition: AB→A+B 3) Displacement: A+BC→AC+B 4) Double Displacement: AB+CD→AD+CB 5) Redox: Oxidation + Reduction. Exothermic releases heat. Endothermic absorbs heat. Corrosion: Metal + Air + Moisture. Rancidity: Oxidation of fats/oils."
+        imp: "1. What is a balanced chemical equation? Why should it be balanced?<br>2. Give 2 examples of decomposition reactions.<br>3. What is rancidity? How can it be prevented?<br>4. Why do silver articles turn black?",
+        mcq: "1. 2H2 + O2 → 2H2O is which type?<br>a) Combination b) Decomposition<br><b>Ans: a) Combination</b><br><br>2. Formula of rust?<br>a) Fe2O3 b) Fe2O3.xH2O<br><b>Ans: b) Fe2O3.xH2O</b>",
+        summary: "Chemical reactions involve breaking and making of bonds. Types: Combination, Decomposition, Displacement, Double Displacement, Redox. Exothermic releases heat, Endothermic absorbs heat. Corrosion and Rancidity are oxidation reactions."
       },
-      "Class 10 Maths|Ch 8 - Introduction to Trigonometry": {
-        imp: "1. Define sin, cos, tan for angle A in right triangle.\n2. Prove sin²A + cos²A = 1\n3. If tan A = 3/4, find sin A and cos A.\n4. Evaluate: sin 60° cos 30° + sin 30° cos 60°\n5. Prove: (1+tan²A) = sec²A",
-        mcq: "1. Value of sin 90°?\na) 0 b) 1 c) 1/2\n<b>Ans: b) 1</b>\n\n2. 1 + cot²A =?\na) sec²A b) cosec²A c) tan²A\n<b>Ans: b) cosec²A</b>",
-        summary: "In right ΔABC, ∠B=90°: sinA=Perp/Hyp, cosA=Base/Hyp, tanA=Perp/Base. Reciprocals: cosecA=1/sinA, secA=1/cosA, cotA=1/tanA. Identities: sin²A+cos²A=1, 1+tan²A=sec²A, 1+cot²A=cosec²A. Values: sin0°=0, sin30°=1/2, sin45°=1/√2, sin60°=√3/2, sin90°=1."
-      },
-      "Class 10 English|Ch 1 - A Letter to God": {
-        imp: "1. What did Lencho hope for?\n2. Who sent the money to Lencho?\n3. Why was Lencho angry?\n4. What is irony in the story?\n5. Describe Lencho's character.",
-        mcq: "1. Author of 'A Letter to God'?\na) G.L. Fuentes b) R.K. Narayan\n<b>Ans: a) G.L. Fuentes</b>\n\n2. How much money did Lencho ask?\na) 50 pesos b) 100 pesos c) 70 pesos\n<b>Ans: b) 100 pesos</b>",
-        summary: "Lencho, a hardworking farmer, writes a letter to God asking for 100 pesos after hailstorm destroys his crops. Postmaster, moved by faith, collects 70 pesos from staff and sends it. Lencho gets angry on receiving less money and calls post office employees 'a bunch of crooks'. Irony: He has immense faith in God but zero faith in humans who actually helped him."
-      },
-      "Class 12 Physics|Ch 1 - Electric Charges and Fields": {
-        imp: "1. State Coulomb's law. Write vector form.\n2. Define electric field. Give SI unit.\n3. State Gauss's law. Write its applications.\n4. What is electric dipole? Define dipole moment.\n5. Derive expression for electric field due to dipole on axial line.",
-        mcq: "1. SI unit of electric charge?\na) Ampere b) Coulomb c) Volt\n<b>Ans: b) Coulomb</b>\n\n2. Electric field is?\na) Scalar b) Vector\n<b>Ans: b) Vector</b>",
-        summary: "Charge: Property of matter. Coulomb's Law: F = kq₁q₂/r². Electric Field: E = F/q₀. Field lines: Start from +ve, end at -ve. Dipole moment: p = q×2a. Gauss Law: φ = q/ε₀. Applications: Field due to line charge E=λ/2πε₀r, sheet E=σ/2ε₀, spherical shell."
+      "Class 10 Hindi|Ch 1 - सूरदास के पद": {
+        imp: "1. सूरदास के पदों में वात्सल्य रस कैसे प्रकट हुआ है?<br>2. 'मैया कबहिं बढ़ैगी चोटी' का भाव स्पष्ट कीजिए।<br>3. सूरदास किसके भक्त थे?",
+        mcq: "1. सूरदास किसके भक्त थे?<br>a) राम b) कृष्ण c) शिव<br><b>Ans: b) कृष्ण</b>",
+        summary: "सूरदास ने कृष्ण की बाल लीलाओं का मनोहारी वर्णन किया है। यशोदा और कृष्ण का मातृ-पुत्र प्रेम वात्सल्य रस का उत्कृष्ट उदाहरण है। पदों में कृष्ण की शरारतें, माखन चोरी, और यशोदा का वात्सल्य भाव दिखता है।"
       },
       "Class 12 English|Ch 1 - My Mother at Sixty Six": {
-        imp: "1. What is the central theme of the poem?\n2. Explain 'familiar ache'.\n3. What does 'young trees sprinting' signify?\n4. Why did poet smile at the end?\n5. Comment on use of imagery in poem.",
-        mcq: "1. Who is the poet?\na) Kamala Das b) Robert Frost\n<b>Ans: a) Kamala Das</b>\n\n2. Mother's face compared to?\na) Late winter's moon b) Sun\n<b>Ans: a) Late winter's moon</b>",
-        summary: "Poet Kamala Das drives to Cochin airport with 66-year old mother. Notices her pale, ashen face like a corpse, dozing with mouth open. Feels old familiar pain of childhood fear - losing mother. Looks outside at young trees sprinting and merry children to distract herself. At airport, says 'see you soon Amma' with a smile to hide real fear. Theme: Aging, Fear of Loss, Separation, Mother-Daughter bond."
+        imp: "1. What is the central theme of the poem?<br>2. Explain 'familiar ache'.<br>3. What does 'young trees sprinting' signify?<br>4. Why did poet smile at the end?",
+        mcq: "1. Who is the poet?<br>a) Kamala Das b) Robert Frost<br><b>Ans: a) Kamala Das</b>",
+        summary: "Poet Kamala Das drives to airport with 66-year old mother. Notices her pale, ashen face like a corpse. Feels old fear of losing mother. Looks at young trees and children to distract. Smiles to hide pain at airport. Theme: Aging, Fear of Loss, Separation."
       }
     };
 
     let currentType = '';
+    let currentChapter = '';
+
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('active');
       document.querySelector('.overlay').classList.toggle('active');
@@ -230,7 +170,7 @@
       document.getElementById('content').style.display = 'block';
       document.getElementById('chapter-title').innerText = subject + ' - ' + chapter;
       document.getElementById('answer').style.display = 'none';
-      window.currentChapter = subject + '|' + chapter;
+      currentChapter = subject + '|' + chapter;
     }
 
     function showAd(type) {
@@ -249,24 +189,59 @@
 
     function showAnswer(type) {
       const answer = document.getElementById('answer');
-      const data = notesData[window.currentChapter];
+      const data = notesData[currentChapter];
       if(type === 'pdf') {
-        answer.innerHTML = '<b>📥 Complete PDF Download:</b>\n\nUPI: ashok@paytm pe ₹29 bhejo\nPayment screenshot Telegram @StudyResearch2_0 pe bhejo.\n5 min me full chapter PDF + extra notes mil jayegi.\n\n<b>PDF me kya milega:</b>\n✓ Full Chapter\n✓ 50+ IMP Questions\n✓ 100+ MCQ\n✓ Previous Year Questions\n✓ Handwritten Notes';
+        answer.innerHTML = '<b>PDF Download:</b><br>UPI: ashok@paytm pe ₹29 bhejo<br>Payment screenshot Telegram @StudyResearch2_0 pe bhejo. 5 min me PDF mil jayegi.';
       } else if(data && data[type]) {
-        answer.innerHTML = '<b>' + type.toUpperCase() + ':</b>\n\n' + data[type];
+        answer.innerHTML = '<b>' + type.toUpperCase() + ':</b><br><br>' + data[type];
       } else {
-        answer.innerHTML = '<b>⏳ Content Ready Ho Raha Hai!</b>\n\nIs chapter ka content typing me hai. 24 ghante me live ho jayega.\n\n<b>Abhi kya kare?</b>\n1. Telegram @StudyResearch2_0 join karo\n2. Wahan "Chapter Name" likho - main PDF bhej dunga\n3. Ya neeche chat me sawal pucho';
+        answer.innerHTML = '<b>Content Coming Soon!</b><br>Is chapter ka content 24 ghante me add ho jayega. Telegram @StudyResearch2_0 join karo.';
       }
       answer.style.display = 'block';
     }
 
     function askQuestion() {
-      const q = document.getElementById('userQ').value.toLowerCase().trim();
+      const q = document.getElementById('userQ').value.toLowerCase();
       if(!q) return;
       
       let ans = '';
       let found = false;
       
-      // Smart search in all data
-      const searchTerms = {
-        'newton': '<b>Newton ke 3 Laws of Motion:</b>\n\n1. <b>First Law - Inertia
+      if(q.includes('hello') || q.includes('hi') || q.includes('hey')) {
+        ans = 'Hello Bhai! NCERT ka koi bhi sawal pucho ya ☰ Menu se Class → Chapter select karo.';
+        found = true;
+      } else if(q.includes('newton') || q.includes('law') || q.includes('बल')) {
+        ans = '<b>Newton ke 3 Laws:</b><br>1. <b>Inertia:</b> Object rest/motion me rahega jab tak external force na lage<br>2. <b>F = ma:</b> Force = Mass x Acceleration<br>3. <b>Action-Reaction:</b> Har action ka equal & opposite reaction hota hai<br><br>Example: Rocket launch, Walking, Car brake';
+        found = true;
+      } else if(q.includes('photo') || q.includes('प्रकाश संश्लेषण') || q.includes('photosynthesis')) {
+        ans = '<b>Photosynthesis:</b><br>6CO2 + 6H2O + Sunlight → C6H12O6 + 6O2<br><br><b>Steps:</b><br>1. Light Reaction: Chloroplast me, ATP/NADPH banta hai<br>2. Dark Reaction: Calvin Cycle, Glucose banta hai<br><br><b>Importance:</b> Oxygen deta hai, Food chain ka base hai';
+        found = true;
+      } else if(q.includes('matter') || q.includes('पदार्थ')) {
+        ans = notesData["Class 9 Science|Ch 1 - Matter in Our Surroundings"].summary;
+        found = true;
+      } else if(q.includes('premchand') || q.includes('हीरा') || q.includes('बैल') || q.includes('do bailo')) {
+        ans = notesData["Class 9 Hindi|Ch 1 - दो बैलों की कथा"].summary;
+        found = true;
+      } else if(q.includes('chemical') || q.includes('reaction')) {
+        ans = notesData["Class 10 Science|Ch 1 - Chemical Reactions"].summary;
+        found = true;
+      }
+      
+      if(!found) {
+        ans = '<b>Bhai ye sawal database me nahi hai.</b><br><br><b>REALITY:</b> Github Pages pe ChatGPT jaisa "har sawal ka jawab" free me nahi ban sakta. Uske liye OpenAI API chahiye = ₹800/month.<br><br><b>SOLUTION:</b><br>1. ☰ Menu se chapter kholo - Full IMP + MCQ + Summary milega<br>2. Telegram @StudyResearch2_0 pe pucho - Main khud jawab dunga<br><br>Abhi 50+ chapters ready hain. Roj naye add kar raha hu.';
+      }
+      
+      document.getElementById('welcome').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+      document.getElementById('chapter-title').innerText = 'AI Answer';
+      document.getElementById('answer').innerHTML = ans;
+      document.getElementById('answer').style.display = 'block';
+      document.getElementById('userQ').value = '';
+    }
+
+    document.getElementById('userQ').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') askQuestion();
+    });
+  </script>
+</body>
+  </html>
