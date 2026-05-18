@@ -3,175 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Research 2.0 - By Ashok Sen</title>
+<title>Ask Ashok Sen - Step by Step AI</title>
 <style>
-*{margin:0;box-sizing:border-box;font-family:Arial}body{background:#f5f5f5;padding-bottom:100px}
-.header{background:#6a1b9a;color:#fff;padding:15px;text-align:center;font-size:18px;font-weight:bold;position:sticky;top:0;z-index:50}
-.menu{position:fixed;top:0;left:-100%;width:85%;height:100%;background:#fff;transition:0.3s;z-index:100;overflow:auto}
-.menu.open{left:0}.menu h3{background:#6a1b9a;color:#fff;padding:20px;margin:0}
-.item{padding:15px;border-bottom:1px solid #ddd;font-weight:bold}.sub{padding:12px 30px;background:#f9f9f9;font-weight:bold}
-.chap{padding:10px 10px 10px 50px;background:#f3e5f5;border-bottom:1px solid #eee;font-size:14px}
-.content{padding:15px}.btn{background:#6a1b9a;color:#fff;padding:12px;margin:8px 0;text-align:center;border-radius:8px;font-weight:bold}
-.box{background:#fff;padding:15px;margin:10px;border-radius:10px;box-shadow:0 2px 5px #ddd}.hide{display:none}
-.search{width:100%;padding:12px;border:2px solid #6a1b9a;border-radius:25px;margin:10px 0}
-.chat{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:10px;border-top:2px solid #6a1b9a}
-.chat-row{display:flex;gap:10px;margin-bottom:8px}
-.chat input{flex:1;padding:12px;border:2px solid #6a1b9a;border-radius:20px}
-.chat button{background:#6a1b9a;color:#fff;border:none;padding:0 15px;border-radius:20px;font-weight:bold;font-size:12px}
-.footer{text-align:center;padding:20px;color:#666;font-size:12px}
-.badge{background:#ff5722;color:#fff;padding:3px 8px;border-radius:10px;font-size:10px;margin-left:5px}
+*{margin:0;box-sizing:border-box;font-family:Arial}
+body{background:#f5f5f5;display:flex;flex-direction:column;height:100vh}
+.header{background:#6a1b9a;color:#fff;padding:15px;text-align:center;font-size:18px;font-weight:bold}
+.chatbox{flex:1;overflow-y:auto;padding:15px}
+.msg{background:#fff;padding:12px;margin:8px 0;border-radius:10px;box-shadow:0 1px 3px #ddd;white-space:pre-wrap}
+.user{background:#e3f2fd;margin-left:20%;text-align:right}
+.ai{background:#f3e5f5;margin-right:20%}
+.input-area{background:#fff;padding:10px;border-top:2px solid #6a1b9a;display:flex;gap:10px}
+.input-area textarea{flex:1;padding:12px;border:2px solid #6a1b9a;border-radius:20px;resize:none;height:50px}
+.input-area button{background:#6a1b9a;color:#fff;border:none;padding:0 20px;border-radius:20px;font-weight:bold}
+.footer{text-align:center;padding:8px;color:#666;font-size:11px;background:#fff}
+.loader{text-align:center;padding:10px;color:#6a1b9a;display:none}
 </style>
 </head>
 <body>
-<div class="header" onclick="openMenu()">☰ Study Research 2.0 - By Ashok Sen</div>
+<div class="header">🤖 Ask Ashok Sen AI - Step by Step Solutions</div>
 
-<div class="menu" id="menu">
-  <h3 onclick="closeMenu()">✕ Close Menu</h3>
-  <input class="search" placeholder="🔍 Chapter ya Subject search karo..." onkeyup="searchChapter(this.value)">
-
-  <div class="item" onclick="show('c10')">Class 10th <span class="badge">All Subjects</span></div>
-  <div id="c10" class="hide">
-    <div class="sub" onclick="show('c10s')">Science</div>
-    <div id="c10s" class="hide">
-      <div class="chap" onclick="load('10 Science','Ch 1 Chemical Reactions')">Ch 1 Chemical Reactions</div>
-      <div class="chap" onclick="load('10 Science','Ch 2 Acids Bases')">Ch 2 Acids Bases & Salts</div>
-      <div class="chap" onclick="load('10 Science','Ch 3 Metals Non-metals')">Ch 3 Metals & Non-metals</div>
-      <div class="chap" onclick="load('10 Science','Ch 4 Carbon Compounds')">Ch 4 Carbon & Compounds</div>
-      <div class="chap" onclick="load('10 Science','Ch 6 Life Processes')">Ch 6 Life Processes</div>
-      <div class="chap" onclick="load('10 Science','Ch 7 Control Coordination')">Ch 7 Control & Coordination</div>
-      <div class="chap" onclick="load('10 Science','Ch 10 Light')">Ch 10 Light Reflection</div>
-      <div class="chap" onclick="load('10 Science','Ch 12 Electricity')">Ch 12 Electricity</div>
-    </div>
-    <div class="sub" onclick="show('c10m')">Mathematics</div>
-    <div id="c10m" class="hide">
-      <div class="chap" onclick="load('10 Maths','Ch 1 Real Numbers')">Ch 1 Real Numbers</div>
-      <div class="chap" onclick="load('10 Maths','Ch 2 Polynomials')">Ch 2 Polynomials</div>
-      <div class="chap" onclick="load('10 Maths','Ch 3 Pair Linear Equations')">Ch 3 Linear Equations</div>
-      <div class="chap" onclick="load('10 Maths','Ch 4 Quadratic Equations')">Ch 4 Quadratic Equations</div>
-      <div class="chap" onclick="load('10 Maths','Ch 8 Trigonometry')">Ch 8 Trigonometry</div>
-    </div>
-    <div class="sub" onclick="show('c10e')">English</div>
-    <div id="c10e" class="hide">
-      <div class="chap" onclick="load('10 English','Ch 1 A Letter to God')">Ch 1 A Letter to God</div>
-      <div class="chap" onclick="load('10 English','Ch 2 Nelson Mandela')">Ch 2 Nelson Mandela</div>
-      <div class="chap" onclick="load('10 English','Grammar Tenses')">Grammar: Tenses</div>
-    </div>
-    <div class="sub" onclick="show('c10h')">Hindi</div>
-    <div id="c10h" class="hide">
-      <div class="chap" onclick="load('10 Hindi','Ch 1 Saakhi')">Ch 1 Saakhi - Kabir</div>
-      <div class="chap" onclick="load('10 Hindi','Vyakaran Sandhi')">Vyakaran: Sandhi</div>
-    </div>
-    <div class="sub" onclick="show('c10ss')">Social Science</div>
-    <div id="c10ss" class="hide">
-      <div class="chap" onclick="load('10 SST','History Ch 1 Nationalism')">History: Nationalism in Europe</div>
-      <div class="chap" onclick="load('10 SST','Geo Ch 1 Resources')">Geography: Resources</div>
-    </div>
-  </div>
-
-  <div class="item" onclick="show('c12')">Class 12th <span class="badge">All Streams</span></div>
-  <div id="c12" class="hide">
-    <div class="sub" onclick="show('c12p')">Physics</div>
-    <div id="c12p" class="hide">
-      <div class="chap" onclick="load('12 Physics','Ch 1 Electric Charges')">Ch 1 Electric Charges</div>
-      <div class="chap" onclick="load('12 Physics','Ch 2 Electrostatic Potential')">Ch 2 Electrostatic Potential</div>
-      <div class="chap" onclick="load('12 Physics','Ch 3 Current Electricity')">Ch 3 Current Electricity</div>
-    </div>
-    <div class="sub" onclick="show('c12c')">Chemistry</div>
-    <div id="c12c" class="hide">
-      <div class="chap" onclick="load('12 Chemistry','Ch 1 Solutions')">Ch 1 Solutions</div>
-      <div class="chap" onclick="load('12 Chemistry','Ch 2 Electrochemistry')">Ch 2 Electrochemistry</div>
-    </div>
-    <div class="sub" onclick="show('c12b')">Biology</div>
-    <div id="c12b" class="hide">
-      <div class="chap" onclick="load('12 Biology','Ch 1 Reproduction')">Ch 1 Reproduction in Organisms</div>
-    </div>
-    <div class="sub" onclick="show('c12m')">Maths</div>
-    <div id="c12m" class="hide">
-      <div class="chap" onclick="load('12 Maths','Ch 1 Relations Functions')">Ch 1 Relations & Functions</div>
-    </div>
-    <div class="sub" onclick="show('c12e')">English</div>
-    <div id="c12e" class="hide">
-      <div class="chap" onclick="load('12 English','Ch 1 My Mother at Sixty Six')">Ch 1 My Mother at Sixty Six</div>
-      <div class="chap" onclick="load('12 English','Ch 2 Keeping Quiet')">Ch 2 Keeping Quiet</div>
-      <div class="chap" onclick="load('12 English','Grammar Voice')">Grammar: Active/Passive Voice</div>
-    </div>
-  </div>
-
-  <div class="item" onclick="show('gram')">Grammar Section <span class="badge">New</span></div>
-  <div id="gram" class="hide">
-    <div class="chap" onclick="load('Grammar','English Tenses')">English: All Tenses</div>
-    <div class="chap" onclick="load('Grammar','Hindi Sandhi')">Hindi: Sandhi</div>
-    <div class="chap" onclick="load('Grammar','Hindi Samas')">Hindi: Samas</div>
-  </div>
+<div class="chatbox" id="chatbox">
+  <div class="msg ai">Namaste! Main Ashok Sen ka AI hu 🙏<br><br>Koi bhi sawal pucho - Maths, Science, English, Hindi, GK...<br>Har jawab Step-by-Step dunga.<br><br>Example: "Quadratic equation kaise solve kare?" ya "Photosynthesis ke steps kya hain?"</div>
 </div>
 
-<div class="content" id="home">
-  <div class="box">
-    <h2>📚 Study Research 2.0</h2>
-    <p><b>By Ashok Sen</b></p><br>
-    <p>✅ Class 10 & 12 All Subjects</p>
-    <p>✅ IMP Questions + MCQ + Summary</p>
-    <p>✅ Hindi/English Grammar</p>
-    <p>✅ Direct Question Search</p><br>
-    <div class="btn" onclick="openMenu()">☰ Chapter Select Karo</div>
-  </div>
-  <div class="box" id="searchResult"></div>
+<div class="loader" id="loader">⏳ Ashok Sen AI soch raha hai...</div>
+
+<div class="input-area">
+  <textarea id="q" placeholder="Yaha apna sawal likho..." onkeypress="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();ask()}"></textarea>
+  <button onclick="ask()">Send</button>
 </div>
 
-<div class="content hide" id="page">
-  <div class="box">
-    <h3 id="title"></h3>
-    <div class="btn" onclick="ans('imp')">📝 IMP Questions</div>
-    <div class="btn" onclick="ans('mcq')">✅ MCQ Questions</div>
-    <div class="btn" onclick="ans('sum')">📖 Chapter Summary</div>
-    <div class="btn" onclick="ans('notes')">📄 Notes PDF <span class="badge">Soon</span></div>
-    <div id="result" class="box hide" style="background:#f3e5f5"></div>
-  </div>
-</div>
-
-<div class="chat">
-  <div class="chat-row">
-    <input id="q" placeholder="Koi bhi sawal pucho ya chapter search karo...">
-    <button onclick="ask()">Ask AI</button>
-  </div>
-  <div class="chat-row">
-    <button onclick="alert('Photo upload ke liye Vercel + Backend chahiye. Abhi text se kaam chalo')" style="background:#ff5722">📷 Photo Upload <span class="badge">Pro</span></button>
-    <button onclick="document.getElementById('home').classList.remove('hide');document.getElementById('page').classList.add('hide')">🏠 Home</button>
-  </div>
-</div>
-
-<div class="footer">Made with ❤️ by Ashok Sen | Study Research 2.0 | v3.0</div>
+<div class="footer">Made with ❤️ by Ashok Sen | Step-by-Step AI v1.0</div>
 
 <script>
-var db={
-"10 Science|Ch 1 Chemical Reactions":{imp:"1. Balanced equation kya hai?<br>2. 4 types of reactions with examples?",mcq:"1. 2H2+O2→2H2O is?<br>a) Combination b) Decomposition<br><b>Ans: a</b><br>2. Rancidity kya hai?<br>a) Oxidation b) Reduction<br><b>Ans: a</b>",sum:"Chemical Reaction: Combination, Decomposition, Displacement, Double Displacement. Oxidation-Reduction bhi hote hain.",notes:"PDF coming soon"},
-"10 Science|Ch 2 Acids Bases":{imp:"1. pH scale 0-14 explain karo<br>2. Litmus paper test?",mcq:"1. pH of lemon?<br>a) 2.5 b) 7 c) 9<br><b>Ans: a</b>",sum:"Acid: pH<7 sour, Base: pH>7 bitter, Neutral=7"},
-"10 English|Ch 1 A Letter to God":{imp:"1. Lencho ko God se kya umeed thi?<br>2. Irony kya hai story me?",mcq:"1. Author kaun hai?<br>a) G.L. Fuentes b) R.K. Narayan<br><b>Ans: a</b>",sum:"Lencho farmer tha. Baarish se fasal barbaad. God ko letter likha. Postmaster ne help ki."},
-"12 Physics|Ch 1 Electric Charges":{imp:"1. Coulomb's law derivation<br>2. Superposition principle?",mcq:"1. 1 Coulomb kitne electrons?<br>a) 6.25×10^18 b) 1.6×10^-19<br><b>Ans: a</b>",sum:"F=kq1q2/r². Charges: Like repel, Unlike attract. Quantization of charge."},
-"Grammar|English Tenses":{imp:"1. 12 Tenses ke naam<br>2. Present Perfect vs Past Perfect?",sum:"Present: Simple, Continuous, Perfect, Perfect Continuous. Same for Past & Future = 12 tenses"},
-"Grammar|Hindi Sandhi":{imp:"1. Sandhi ke 3 bhed<br>2. Swar Sandhi ke examples?",sum:"Swar, Vyanjan, Visarga Sandhi. Example: Ram + Avtar = Ramavtar"}
-};
-var cur="";var allChaps=[];
-window.onload=function(){
-  document.querySelectorAll('.chap').forEach(c=>{allChaps.push({name:c.innerText,onclick:c.getAttribute('onclick')})})
+const chatbox = document.getElementById('chatbox');
+const loader = document.getElementById('loader');
+
+function addMsg(text, type) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + type;
+  div.innerHTML = text;
+  chatbox.appendChild(div);
+  chatbox.scrollTop = chatbox.scrollHeight;
 }
-function openMenu(){document.getElementById('menu').classList.add('open')}
-function closeMenu(){document.getElementById('menu').classList.remove('open')}
-function show(id){document.getElementById(id).classList.toggle('hide')}
-function load(s,c){closeMenu();document.getElementById('home').classList.add('hide');document.getElementById('page').classList.remove('hide');document.getElementById('title').innerText=s+" - "+c;document.getElementById('result').classList.add('hide');cur=s+"|"+c}
-function ans(t){var r=document.getElementById('result');if(db[cur]&&db[cur][t]){r.innerHTML="<b>"+t.toUpperCase()+"</b><br><br>"+db[cur][t];r.classList.remove('hide')}else{r.innerHTML="<b>Content Adding Soon</b><br>Is topic ka data jald update hoga. Telegram @StudyResearch2_0 pe request karo";r.classList.remove('hide')}}
-function ask(){
-  var q=document.getElementById('q').value.trim();if(!q){alert("Sawal likho pehle");return}
-  var r=document.getElementById('searchResult');
-  document.getElementById('home').classList.remove('hide');document.getElementById('page').classList.add('hide');
-  r.innerHTML="<b>Search Result:</b><br><br>Q: "+q+"<br><br><b>Answer:</b> Bhai abhi ye demo AI hai. Real AI ke liye 'Photo Upload' feature ke saath Vercel backend setup karna padega. Tab ye kisi bhi book ka photo se sawal solve kar dega.<br><br><b>Abhi ke liye:</b> Menu se chapter select karke IMP/MCQ dekho.";
-  document.getElementById('q').value=""
-}
-function searchChapter(val){
-  val=val.toLowerCase();var html="";if(val.length<2){document.getElementById('searchResult').innerHTML="";return}
-  allChaps.forEach(c=>{if(c.name.toLowerCase().includes(val)){html+='<div class="chap" onclick="'+c.onclick+'">'+c.name+'</div>'}})
-  document.getElementById('searchResult').innerHTML=html||"<p>No chapter found</p>"
+
+async function ask() {
+  const q = document.getElementById('q').value.trim();
+  if(!q) return;
+  
+  addMsg(q, 'user');
+  document.getElementById('q').value = '';
+  loader.style.display = 'block';
+  
+  try {
+    // FREE AI API - No key needed. Agar ye band ho jaye to niche dusra option hai
+    const res = await fetch('https://api.binjie.site/api/generateStream', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        prompt: `You are Ask Ashok Sen AI. Give step-by-step solution in Hinglish for: ${q}. Always start with "Step 1:" and explain clearly for Class 10/12 student. End with "Made by Ashok Sen"`,
+        model: "gpt-3.5-turbo"
+      })
+    });
+    
+    if(!res.ok) throw new Error('API Error');
+    
+    const data = await res.text();
+    loader.style.display = 'none';
+    addMsg(data + '<br><br><b>— Made by Ashok Sen</b>', 'ai');
+    
+  } catch(e) {
+    loader.style.display = 'none';
+    addMsg(`<b>Step-by-Step Answer:</b><br><br>Maaf karo bhai, abhi server busy hai 😔<br><br><b>Temporary Solution:</b><br>1. Apna sawal Google pe search karo<br>2. Ya Telegram @StudyResearch2_0 pe pucho<br><br><b>Note:</b> Real AI ke liye backend setup karna padega. Main code de dunga agar chahiye.<br><br><b>— Made by Ashok Sen</b>`, 'ai');
+  }
 }
 </script>
 </body>
-  </html>
+</html>
