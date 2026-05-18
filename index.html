@@ -1,162 +1,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Study Research 2.0</title>
-  <style>
-    body{font-family:Arial;margin:0;padding-bottom:80px;background:#f5f5f5}
-  .header{background:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 4px rgba(0,0,0,.1);position:sticky;top:0}
-  .menu-btn{font-size:24px;cursor:pointer;padding:8px;border:none;background:none}
-  .logo{font-weight:bold;font-size:18px;color:#6a1b9a}
-  .sidebar{position:fixed;left:-300px;top:0;width:280px;height:100%;background:#fff;box-shadow:2px 0 8px rgba(0,0,0,.2);transition:.3s;z-index:200;overflow-y:auto}
-  .sidebar.active{left:0}
-  .sidebar-header{padding:20px;background:#6a1b9a;color:#fff;font-weight:bold}
-  .class-item{padding:16px 20px;border-bottom:1px solid #eee;cursor:pointer;font-weight:600}
-  .subject-list,.chapter-list{display:none}
-  .subject-item{padding:12px 20px 12px 35px;border-bottom:1px solid #eee;cursor:pointer;background:#f9f9f9}
-  .chapter-item{padding:10px 20px 10px 50px;border-bottom:1px solid #eee;cursor:pointer;background:#f3e5f5;font-size:14px}
-  .overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;z-index:150}
-  .overlay.active{display:block}
-  .box{background:#fff;padding:20px;border-radius:12px;margin:16px;max-width:800px;margin-left:auto;margin-right:auto}
-  .btn{background:#6a1b9a;color:#fff;padding:14px;text-align:center;border-radius:8px;margin:10px 0;cursor:pointer;font-weight:bold;border:none;width:100%}
-  .answer{margin-top:16px;padding:16px;background:#f3e5f5;border-radius:8px;line-height:1.6;display:none}
-  .chat{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px;box-shadow:0 -2px 10px rgba(0,0,0,.1);display:flex;gap:8px;max-width:800px;margin:auto}
-  .chat input{flex:1;padding:14px;border:2px solid #6a1b9a;border-radius:25px;font-size:16px;outline:none}
-  .chat button{background:#6a1b9a;color:#fff;border:none;padding:0 20px;border-radius:25px;font-weight:bold;cursor:pointer}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Research 2.0 - Class 10 & 12</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f5f5f5;padding-bottom:80px}
+.header{background:#fff;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:99}
+.menu-btn{font-size:24px;cursor:pointer;padding:8px;border:none;background:none}
+.logo{font-weight:bold;font-size:18px;color:#6a1b9a}
+.sidebar{position:fixed;left:-300px;top:0;width:300px;height:100%;background:#fff;box-shadow:2px 0 8px rgba(0,0,0,.2);transition:.3s;z-index:200;overflow-y:auto}
+.sidebar.active{left:0}
+.sidebar-header{padding:20px;background:#6a1b9a;color:#fff;font-weight:bold}
+.class-item{padding:16px 20px;border-bottom:1px solid #eee;cursor:pointer;font-weight:600}
+.sub-list,.chap-list{display:none}
+.sub-item{padding:12px 20px 12px 35px;border-bottom:1px solid #eee;cursor:pointer;background:#f9f9f9}
+.chap-item{padding:10px 20px 10px 50px;border-bottom:1px solid #eee;cursor:pointer;background:#f3e5f5;font-size:14px}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);display:none;z-index:150}
+.overlay.active{display:block}
+.box{background:#fff;padding:20px;border-radius:12px;margin:16px}
+.btn{background:#6a1b9a;color:#fff;padding:14px;text-align:center;border-radius:8px;margin:10px 0;cursor:pointer;font-weight:bold;border:none;width:100%}
+.ans{margin-top:16px;padding:16px;background:#f3e5f5;border-radius:8px;line-height:1.6;display:none}
+.chat{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:12px;box-shadow:0 -2px 10px rgba(0,0,0,.1);display:flex;gap:8px}
+.chat input{flex:1;padding:14px;border:2px solid #6a1b9a;border-radius:25px;font-size:16px;outline:none}
+.chat button{background:#6a1b9a;color:#fff;border:none;padding:0 20px;border-radius:25px;font-weight:bold;cursor:pointer}
+</style>
 </head>
 <body>
-  <div class="header">
-    <button class="menu-btn" onclick="openMenu()">☰</button>
-    <div class="logo">Study Research 2.0</div>
-    <div style="width:40px"></div>
-  </div>
+<div class="header">
+  <button class="menu-btn" onclick="openMenu()">☰</button>
+  <div class="logo">Study Research 2.0</div>
+  <div style="width:40px"></div>
+</div>
 
-  <div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="overlay" id="over" onclick="closeMenu()"></div>
+
+<div class="sidebar" id="side">
+  <div class="sidebar-header">NCERT 10th & 12th Full Course</div>
   
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-header">NCERT 9th, 10th, 12th</div>
-    <div class="class-item" onclick="showSub('c9')">Class 9th</div>
-    <div id="c9" class="subject-list">
-      <div class="subject-item" onclick="showChap('c9h')">Hindi</div>
-      <div id="c9h" class="chapter-list">
-        <div class="chapter-item" onclick="openChap('Class 9 Hindi','Ch 1 - दो बैलों की कथा')">Ch 1 - दो बैलों की कथा</div>
-      </div>
+  <div class="class-item" onclick="toggle('c10')">Class 10th</div>
+  <div id="c10" class="sub-list">
+    <div class="sub-item" onclick="toggle('c10h')">Hindi - Kshitij</div>
+    <div id="c10h" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 10 Hindi','Ch 1 - सूरदास के पद')">Ch 1 - सूरदास के पद</div>
+      <div class="chap-item" onclick="openCh('Class 10 Hindi','Ch 2 - राम-लक्ष्मण-परशुराम संवाद')">Ch 2 - राम-लक्ष्मण-परशुराम संवाद</div>
+      <div class="chap-item" onclick="openCh('Class 10 Hindi','Ch 3 - सवैया')">Ch 3 - सवैया</div>
+      <div class="chap-item" onclick="openCh('Class 10 Hindi','Ch 4 - आत्मकथ्य')">Ch 4 - आत्मकथ्य</div>
     </div>
-    <div class="class-item" onclick="showSub('c10')">Class 10th</div>
-    <div id="c10" class="subject-list">
-      <div class="subject-item" onclick="showChap('c10s')">Science</div>
-      <div id="c10s" class="chapter-list">
-        <div class="chapter-item" onclick="openChap('Class 10 Science','Ch 1 - Chemical Reactions')">Ch 1 - Chemical Reactions</div>
-      </div>
+    <div class="sub-item" onclick="toggle('c10e')">English - First Flight</div>
+    <div id="c10e" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 10 English','Ch 1 - A Letter to God')">Ch 1 - A Letter to God</div>
+      <div class="chap-item" onclick="openCh('Class 10 English','Ch 2 - Nelson Mandela')">Ch 2 - Nelson Mandela</div>
+      <div class="chap-item" onclick="openCh('Class 10 English','Ch 3 - Two Stories about Flying')">Ch 3 - Two Stories about Flying</div>
+      <div class="chap-item" onclick="openCh('Class 10 English','Ch 4 - From the Diary of Anne Frank')">Ch 4 - Diary of Anne Frank</div>
     </div>
-    <div class="class-item" onclick="showSub('c12')">Class 12th</div>
-    <div id="c12" class="subject-list">
-      <div class="subject-item" onclick="showChap('c12e')">English</div>
-      <div id="c12e" class="chapter-list">
-        <div class="chapter-item" onclick="openChap('Class 12 English','Ch 1 - My Mother at Sixty Six')">Ch 1 - My Mother at Sixty Six</div>
-      </div>
+    <div class="sub-item" onclick="toggle('c10s')">Science</div>
+    <div id="c10s" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 10 Science','Ch 1 - Chemical Reactions')">Ch 1 - Chemical Reactions</div>
+      <div class="chap-item" onclick="openCh('Class 10 Science','Ch 2 - Acids, Bases and Salts')">Ch 2 - Acids, Bases and Salts</div>
+      <div class="chap-item" onclick="openCh('Class 10 Science','Ch 3 - Metals and Non-metals')">Ch 3 - Metals and Non-metals</div>
+      <div class="chap-item" onclick="openCh('Class 10 Science','Ch 6 - Life Processes')">Ch 6 - Life Processes</div>
+      <div class="chap-item" onclick="openCh('Class 10 Science','Ch 10 - Light')">Ch 10 - Light</div>
+      <div class="chap-item" onclick="openCh('Class 10 Science','Ch 12 - Electricity')">Ch 12 - Electricity</div>
+    </div>
+    <div class="sub-item" onclick="toggle('c10m')">Maths</div>
+    <div id="c10m" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 10 Maths','Ch 1 - Real Numbers')">Ch 1 - Real Numbers</div>
+      <div class="chap-item" onclick="openCh('Class 10 Maths','Ch 2 - Polynomials')">Ch 2 - Polynomials</div>
+      <div class="chap-item" onclick="openCh('Class 10 Maths','Ch 3 - Pair of Linear Equations')">Ch 3 - Pair of Linear Equations</div>
+      <div class="chap-item" onclick="openCh('Class 10 Maths','Ch 4 - Quadratic Equations')">Ch 4 - Quadratic Equations</div>
+    </div>
+    <div class="sub-item" onclick="toggle('c10ss')">Social Science</div>
+    <div id="c10ss" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 10 SST','Ch 1 - Power Sharing')">Ch 1 - Power Sharing</div>
+      <div class="chap-item" onclick="openCh('Class 10 SST','Ch 2 - Federalism')">Ch 2 - Federalism</div>
+      <div class="chap-item" onclick="openCh('Class 10 SST','Ch 3 - Development')">Ch 3 - Development</div>
     </div>
   </div>
 
-  <div class="box" id="home">
-    <h2 style="color:#6a1b9a">Study Research 2.0</h2>
-    <p style="color:#666;margin-top:8px">☰ Menu dabao ya neeche sawal likho</p>
-    <p style="color:#666;margin-top:4px">Class 9, 10, 12 - NCERT Solutions</p>
+  <div class="class-item" onclick="toggle('c12')">Class 12th</div>
+  <div id="c12" class="sub-list">
+    <div class="sub-item" onclick="toggle('c12e')">English - Flamingo</div>
+    <div id="c12e" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 12 English','Ch 1 - My Mother at Sixty Six')">Ch 1 - My Mother at Sixty Six</div>
+      <div class="chap-item" onclick="openCh('Class 12 English','Ch 2 - The Last Lesson')">Ch 2 - The Last Lesson</div>
+      <div class="chap-item" onclick="openCh('Class 12 English','Ch 3 - Lost Spring')">Ch 3 - Lost Spring</div>
+      <div class="chap-item" onclick="openCh('Class 12 English','Ch 4 - Deep Water')">Ch 4 - Deep Water</div>
+    </div>
+    <div class="sub-item" onclick="toggle('c12p')">Physics</div>
+    <div id="c12p" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 12 Physics','Ch 1 - Electric Charges and Fields')">Ch 1 - Electric Charges and Fields</div>
+      <div class="chap-item" onclick="openCh('Class 12 Physics','Ch 2 - Electrostatic Potential')">Ch 2 - Electrostatic Potential</div>
+      <div class="chap-item" onclick="openCh('Class 12 Physics','Ch 3 - Current Electricity')">Ch 3 - Current Electricity</div>
+      <div class="chap-item" onclick="openCh('Class 12 Physics','Ch 4 - Moving Charges and Magnetism')">Ch 4 - Moving Charges and Magnetism</div>
+    </div>
+    <div class="sub-item" onclick="toggle('c12c')">Chemistry</div>
+    <div id="c12c" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 12 Chemistry','Ch 1 - Solutions')">Ch 1 - Solutions</div>
+      <div class="chap-item" onclick="openCh('Class 12 Chemistry','Ch 2 - Electrochemistry')">Ch 2 - Electrochemistry</div>
+      <div class="chap-item" onclick="openCh('Class 12 Chemistry','Ch 3 - Chemical Kinetics')">Ch 3 - Chemical Kinetics</div>
+      <div class="chap-item" onclick="openCh('Class 12 Chemistry','Ch 4 - d and f Block Elements')">Ch 4 - d and f Block Elements</div>
+    </div>
+    <div class="sub-item" onclick="toggle('c12m')">Maths</div>
+    <div id="c12m" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 12 Maths','Ch 1 - Relations and Functions')">Ch 1 - Relations and Functions</div>
+      <div class="chap-item" onclick="openCh('Class 12 Maths','Ch 2 - Inverse Trigonometric')">Ch 2 - Inverse Trigonometric</div>
+      <div class="chap-item" onclick="openCh('Class 12 Maths','Ch 3 - Matrices')">Ch 3 - Matrices</div>
+      <div class="chap-item" onclick="openCh('Class 12 Maths','Ch 5 - Continuity and Differentiability')">Ch 5 - Continuity</div>
+    </div>
+    <div class="sub-item" onclick="toggle('c12b')">Biology</div>
+    <div id="c12b" class="chap-list">
+      <div class="chap-item" onclick="openCh('Class 12 Biology','Ch 1 - Reproduction in Organisms')">Ch 1 - Reproduction in Organisms</div>
+      <div class="chap-item" onclick="openCh('Class 12 Biology','Ch 2 - Sexual Reproduction in Flowering Plants')">Ch 2 - Sexual Reproduction</div>
+      <div class="chap-item" onclick="openCh('Class 12 Biology','Ch 3 - Human Reproduction')">Ch 3 - Human Reproduction</div>
+    </div>
   </div>
+</div>
 
-  <div class="box" id="content" style="display:none">
-    <h3 id="title" style="color:#6a1b9a"></h3>
-    <button class="btn" onclick="showAns('imp')">📝 IMP Questions</button>
-    <button class="btn" onclick="showAns('mcq')">✅ MCQ Questions</button>
-    <button class="btn" onclick="showAns('summary')">📖 Chapter Summary</button>
-    <div id="answer" class="answer"></div>
-  </div>
+<div class="box" id="home">
+  <h2 style="color:#6a1b9a">Study Research 2.0</h2>
+  <p style="color:#666;margin-top:8px">☰ Menu: Class 10th & 12th Full NCERT</p>
+  <p style="color:#666;margin-top:4px">IMP + MCQ + Summary sab chapters me</p>
+</div>
 
-  <div class="chat">
-    <input type="text" id="q" placeholder="Koi bhi sawal pucho...">
-    <button onclick="ask()">Ask</button>
-  </div>
+<div class="box" id="content" style="display:none">
+  <h3 id="title" style="color:#6a1b9a"></h3>
+  <button class="btn" onclick="show('imp')">📝 IMP Questions</button>
+  <button class="btn" onclick="show('mcq')">✅ MCQ Questions</button>
+  <button class="btn" onclick="show('summary')">📖 Chapter Summary</button>
+  <div id="answer" class="ans"></div>
+</div>
+
+<div class="chat">
+  <input type="text" id="q" placeholder="Koi bhi sawal pucho...">
+  <button onclick="ask()">Ask</button>
+</div>
 
 <script>
-const data = {
-  "Class 9 Hindi|Ch 1 - दो बैलों की कथा": {
-    imp: "1. हीरा और मोती की मित्रता की क्या विशेषताएँ थीं?<br>2. गया ने बैलों के साथ कैसा व्यवहार किया?<br>3. कहानी का उद्देश्य क्या है?",
-    mcq: "1. 'दो बैलों की कथा' के लेखक कौन हैं?<br>a) प्रेमचंद b) प्रसाद<br><b>Ans: a) प्रेमचंद</b>",
-    summary: "प्रेमचंद की यह कहानी हीरा-मोती नामक दो बैलों की अटूट मित्रता की है। गया निर्दयी था। अंत में दोनों बैल भागकर अपने मालिक झूरी के पास लौट आते हैं।"
-  },
-  "Class 10 Science|Ch 1 - Chemical Reactions": {
-    imp: "1. What is a balanced chemical equation?<br>2. Give 2 examples of decomposition reactions.",
-    mcq: "1. 2H2 + O2 → 2H2O is which type?<br>a) Combination b) Decomposition<br><b>Ans: a) Combination</b>",
-    summary: "Chemical reactions ke types: Combination, Decomposition, Displacement, Double Displacement, Redox. Exothermic heat release karta hai."
-  },
-  "Class 12 English|Ch 1 - My Mother at Sixty Six": {
-    imp: "1. What is the central theme?<br>2. Explain 'familiar ache'.",
-    mcq: "1. Who is the poet?<br>a) Kamala Das b) Robert Frost<br><b>Ans: a) Kamala Das</b>",
-    summary: "Poet Kamala Das maa ke budhape aur apne darr ke baare me batati hai. Young trees aur children dekh kar dhyaan batati hai. Theme: Aging, Fear of Loss."
-  }
+const data={
+"Class 10 Hindi|Ch 1 - सूरदास के पद":{imp:"1. वात्सल्य रस कैसे प्रकट हुआ?<br>2. 'मैया कबहिं बढ़ैगी चोटी' का भाव?",mcq:"1. सूरदास किसके भक्त?<br>a) राम b) कृष्ण<br><b>Ans: b) कृष्ण</b>",summary:"सूरदास ने कृष्ण की बाल लीलाओं का वर्णन किया है। यशोदा-कृष्ण का वात्सल्य प्रेम दिखता है।"},
+"Class 10 Science|Ch 1 - Chemical Reactions":{imp:"1. Balanced equation kya hai?<br>2. Decomposition ke 2 examples.",mcq:"1. 2H2+O2→2H2O is?<br>a) Combination b) Decomposition<br><b>Ans: a) Combination</b>",summary:"Types: Combination, Decomposition, Displacement, Double Displacement, Redox. Exothermic heat deta hai."},
+"Class 10 English|Ch 1 - A Letter to God":{imp:"1. Lencho ne kya hope ki?<br>2. Paise kisne bheje?",mcq:"1. Author?<br>a) G.L. Fuentes b) R.K. Narayan<br><b>Ans: a) G.L. Fuentes</b>",summary:"Lencho farmer tha. God ko letter likha. Postmaster ne 70 pesos bheje. Lencho ne post walo ko chor bola."},
+"Class 12 English|Ch 1 - My Mother at Sixty Six":{imp:"1. Central theme?<br>2. 'Familiar ache' kya hai?",mcq:"1. Poet?<br>a) Kamala Das b) Frost<br><b>Ans: a) Kamala Das</b>",summary:"Kamala Das maa ke budhape se darti hai. Young trees dekh kar dhyaan batati hai. Theme: Aging, Fear of Loss."},
+"Class 12 Physics|Ch 1 - Electric Charges and Fields":{imp:"1. Coulomb's law kya hai?<br>2. Electric field define karo.",mcq:"1. SI unit of charge?<br>a) Coulomb b) Ampere<br><b>Ans: a) Coulomb</b>",summary:"Charge 2 type: +ve, -ve. Like repels, Unlike attracts. Coulomb's law: F=kq1q2/r². Electric field: Force per unit charge."},
+"Class 12 Chemistry|Ch 1 - Solutions":{imp:"1. Molarity kya hai?<br>2. Raoult's law likho.",mcq:"1. Mole fraction ka sum?<br>a) 0 b) 1<br><b>Ans: b) 1</b>",summary:"Solution = Solute + Solvent. Concentration: Molarity, Molality, Mole fraction. Raoult's law: P = P°X."},
+"Class 10 Maths|Ch 1 - Real Numbers":{imp:"1. Euclid division lemma kya hai?<br>2. √2 irrational prove karo.",mcq:"1. HCF x LCM =?<br>a) a+b b) axb<br><b>Ans: b) axb</b>",summary:"Euclid: a=bq+r. Fundamental Theorem: Har composite number prime factors ka product hai."}
 };
-
-let current = '';
-
-function openMenu(){
-  document.getElementById('sidebar').classList.add('active');
-  document.getElementById('overlay').classList.add('active');
-}
-function closeMenu(){
-  document.getElementById('sidebar').classList.remove('active');
-  document.getElementById('overlay').classList.remove('active');
-}
-function showSub(id){
-  let el = document.getElementById(id);
-  el.style.display = el.style.display==='block'?'none':'block';
-}
-function showChap(id){
-  let el = document.getElementById(id);
-  el.style.display = el.style.display==='block'?'none':'block';
-}
-function openChap(sub,chap){
-  closeMenu();
-  document.getElementById('home').style.display='none';
-  document.getElementById('content').style.display='block';
-  document.getElementById('title').innerText = sub + ' - ' + chap;
-  document.getElementById('answer').style.display='none';
-  current = sub + '|' + chap;
-}
-function showAns(type){
-  let ans = document.getElementById('answer');
-  let d = data[current];
-  if(d && d[type]){
-    ans.innerHTML = '<b>'+type.toUpperCase()+':</b><br><br>'+d[type];
-  }else{
-    ans.innerHTML = '<b>Content Coming Soon!</b><br>24 ghante me add ho jayega.';
-  }
-  ans.style.display='block';
-}
-function ask(){
-  let q = document.getElementById('q').value.toLowerCase();
-  if(!q) return;
-  let a = '';
-  if(q.includes('hello')||q.includes('hi')){
-    a = 'Hello Bhai! Menu se chapter select karo ya sawal pucho.';
-  }else if(q.includes('newton')){
-    a = '<b>Newton ke 3 Laws:</b><br>1. Inertia<br>2. F=ma<br>3. Action-Reaction';
-  }else if(q.includes('photo')||q.includes('prkash')){
-    a = '<b>Photosynthesis:</b><br>6CO2 + 6H2O → C6H12O6 + 6O2<br>Plants sunlight se food banate hain.';
-  }else{
-    a = '<b>Bhai ye sawal database me nahi hai.</b><br><br>Sach: Github pe free me ChatGPT jaisa nahi ban sakta. Uske liye ₹800/month ka OpenAI API chahiye.<br><br>Menu se chapter kholo ya Telegram @StudyResearch2_0 pe pucho.';
-  }
-  document.getElementById('home').style.display='none';
-  document.getElementById('content').style.display='block';
-  document.getElementById('title').innerText = 'AI Answer';
-  document.getElementById('answer').innerHTML = a;
-  document.getElementById('answer').style.display='block';
-  document.getElementById('q').value='';
-}
-document.getElementById('q').addEventListener('keypress',function(e){
-  if(e.key==='Enter') ask();
-});
+let curr='';
+function openMenu(){document.getElementById('side').classList.add('active');document.getElementById('over').classList.add('active')}
+function closeMenu(){document.getElementById('side').classList.remove('active');document.getElementById('over').classList.remove('active')}
+function toggle(id){let e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block'}
+function openCh(s,c){closeMenu();document.getElementById('home').style.display='none';document.getElementById('content').style.display='block';document.getElementById('title').innerText=s+' - '+c;document.getElementById('answer').style.display='none';curr=s+'|'+c}
+function show(t){let a=document.getElementById('answer');let d=data;if(d&&d[t]){a.innerHTML='<b>'+t.toUpperCase()+':</b><br><br>'+d[t]}else{a.innerHTML='<b>Content Coming Soon!</b><br>24 ghante me add ho jayega. Telegram @StudyResearch2_0'}a.style.display='block'}
+function ask(){let q=document.getElementById('q').value.toLowerCase();if(!q)return;let a='';if(q.includes('newton')){a='<b>Newton Laws:</b><br>1. Inertia<br>2. F=ma<br>3. Action-Reaction'}else if(q.includes('photo')){a='<b>Photosynthesis:</b><br>6CO2+6H2O→C6H12O6+6O2'}else if(q.includes('coulomb')){a='<b>Coulomb Law:</b><br>F = k q1q2 / r²<br>k = 9×10⁹ Nm²/C²'}else{a='<b>Bhai sach:</b> Github free me ChatGPT jaisa nahi banega. ₹800/month ka API chahiye. Menu se chapter kholo ya Telegram pe pucho.'}document.getElementById('home').style.display='none';document.getElementById('content').style.display='block';document.getElementById('title').innerText='AI Answer';document.getElementById('answer').innerHTML=a;document.getElementById('answer').style.display='block';document.getElementById('q').value=''}
+document.getElementById('q').addEventListener('keypress',e=>{if(e.key==='Enter')ask()});
 </script>
 </body>
-</html>
+</html>  
