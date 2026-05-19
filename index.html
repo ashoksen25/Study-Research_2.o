@@ -3,79 +3,163 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ask Ashok Sen - Step by Step AI</title>
+<title>Ask Ashok Sen - PDF Wala AI</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
 *{margin:0;box-sizing:border-box;font-family:Arial}
-body{background:#f5f5f5;display:flex;flex-direction:column;height:100vh}
-.header{background:#6a1b9a;color:#fff;padding:15px;text-align:center;font-size:18px;font-weight:bold}
-.chatbox{flex:1;overflow-y:auto;padding:15px}
-.msg{background:#fff;padding:12px;margin:8px 0;border-radius:10px;box-shadow:0 1px 3px #ddd;white-space:pre-wrap}
-.user{background:#e3f2fd;margin-left:20%;text-align:right}
-.ai{background:#f3e5f5;margin-right:20%}
-.input-area{background:#fff;padding:10px;border-top:2px solid #6a1b9a;display:flex;gap:10px}
-.input-area textarea{flex:1;padding:12px;border:2px solid #6a1b9a;border-radius:20px;resize:none;height:50px}
-.input-area button{background:#6a1b9a;color:#fff;border:none;padding:0 20px;border-radius:20px;font-weight:bold}
-.footer{text-align:center;padding:8px;color:#666;font-size:11px;background:#fff}
-.loader{text-align:center;padding:10px;color:#6a1b9a;display:none}
+body{background:#fff;height:100vh;display:flex;flex-direction:column}
+.header{background:#6a1b9a;color:#fff;padding:20px;text-align:center;font-size:22px;font-weight:bold}
+.main{flex:1;display:flex;flex-direction:column;align-items:center;padding:20px;overflow-y:auto}
+.logo{font-size:60px;margin:20px 0 10px 0}
+.tagline{color:#666;margin-bottom:30px;font-size:16px;text-align:center}
+.search-box{width:100%;max-width:700px;position:relative;margin-bottom:20px}
+.search-box input{width:100%;padding:18px 60px 18px 25px;font-size:18px;border:3px solid #6a1b9a;border-radius:50px;outline:none}
+.mic-btn{position:absolute;right:5px;top:50%;transform:translateY(-50%);background:#6a1b9a;color:#fff;border:none;width:50px;height:50px;border-radius:50%;font-size:22px;cursor:pointer}
+.search-btn{background:#6a1b9a;color:#fff;border:none;padding:15px 40px;border-radius:30px;font-size:18px;font-weight:bold;cursor:pointer}
+.answer-box{width:100%;max-width:800px;background:#f9f9f9;padding:25px;border-radius:15px;margin-top:30px;border-left:5px solid #6a1b9a;display:none;line-height:1.8;font-size:16px;white-space:pre-wrap}
+.answer-box.show{display:block}
+.loader{text-align:center;padding:20px;color:#6a1b9a;font-size:18px;display:none}
+.footer{text-align:center;padding:15px;color:#666;font-size:12px;border-top:1px solid #eee}
+.ad-gate{background:#ffeb3b;padding:20px;border-radius:10px;text-align:center;margin:20px 0;border:3px dashed #f57c00;display:none}
+.ad-gate button{background:#f57c00;color:#fff;border:none;padding:12px 30px;border-radius:25px;font-size:16px;font-weight:bold;cursor:pointer}
+.pdf-btn{background:#4caf50;color:#fff;border:none;padding:15px 30px;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:15px;display:none}
 </style>
 </head>
 <body>
-<div class="header">🤖 Ask Ashok Sen AI - Step by Step Solutions</div>
+<div class="header">📚 Ask Ashok Sen AI - PDF Download</div>
 
-<div class="chatbox" id="chatbox">
-  <div class="msg ai">Namaste! Main Ashok Sen ka AI hu 🙏<br><br>Koi bhi sawal pucho - Maths, Science, English, Hindi, GK...<br>Har jawab Step-by-Step dunga.<br><br>Example: "Quadratic equation kaise solve kare?" ya "Photosynthesis ke steps kya hain?"</div>
+<div class="main">
+  <div class="logo">📄</div>
+  <div class="tagline">Koi bhi chapter pucho - Imp Questions ka PDF milega<br>Example: "Class 10 Science Chapter 1 imp questions"</div>
+
+  <div class="search-box">
+    <input type="text" id="q" placeholder="Chapter name likho... Example: Class 10 Science Ch 1" onkeypress="if(event.key==='Enter') search()">
+    <button class="mic-btn" onclick="startVoice()">🎤</button>
+  </div>
+
+  <button class="search-btn" onclick="search()">🔍 PDF Banao</button>
+
+  <div class="loader" id="loader">⏳ Ashok Sen AI notes bana raha hai...</div>
+
+  <div class="answer-box" id="answerBox"></div>
+
+  <div class="ad-gate" id="adGate">
+    <h3>⚠️ PDF Download Karne Ke Liye Ad Dekho</h3>
+    <p style="margin:10px 0">Free PDF pane ke liye 30 sec ka ad dekho</p>
+    <button onclick="showAd()">📺 Ad Dekho & PDF Unlock Karo</button>
+  </div>
+
+  <button class="pdf-btn" id="pdfBtn" onclick="downloadPDF()">📥 PDF Download Karo</button>
 </div>
 
-<div class="loader" id="loader">⏳ Ashok Sen AI soch raha hai...</div>
-
-<div class="input-area">
-  <textarea id="q" placeholder="Yaha apna sawal likho..." onkeypress="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();ask()}"></textarea>
-  <button onclick="ask()">Send</button>
-</div>
-
-<div class="footer">Made with ❤️ by Ashok Sen | Step-by-Step AI v1.0</div>
+<div class="footer">Made with ❤️ by Ashok Sen | 85% Important Questions Guaranteed</div>
 
 <script>
-const chatbox = document.getElementById('chatbox');
+// ⚠️ YAHAN APNI GEMINI API KEY DAALO
+const API_KEY = "AIzaSyDDdKE9rPWqxQ3GHIRLaU_ZmOi7uzS4Ptc";
+let currentPDFContent = '';
+let currentChapter = '';
+
+const answerBox = document.getElementById('answerBox');
+const qInput = document.getElementById('q');
 const loader = document.getElementById('loader');
+const adGate = document.getElementById('adGate');
+const pdfBtn = document.getElementById('pdfBtn');
 
-function addMsg(text, type) {
-  const div = document.createElement('div');
-  div.className = 'msg ' + type;
-  div.innerHTML = text;
-  chatbox.appendChild(div);
-  chatbox.scrollTop = chatbox.scrollHeight;
-}
+async function search() {
+  const q = qInput.value.trim();
+  if(!q) return alert('Chapter name likho bhai');
+  if(API_KEY === 'PASTE_YOUR_API_KEY_HERE') return alert('API Key daalo pehle');
 
-async function ask() {
-  const q = document.getElementById('q').value.trim();
-  if(!q) return;
-  
-  addMsg(q, 'user');
-  document.getElementById('q').value = '';
   loader.style.display = 'block';
-  
+  answerBox.classList.remove('show');
+  adGate.style.display = 'none';
+  pdfBtn.style.display = 'none';
+
+  const prompt = `You are Ask Ashok Sen AI. User wants IMP questions for: "${q}".
+
+Generate 20 Most Important Questions with Answers for exam.
+Format exactly like this:
+अध्याय-X : Chapter Name
+1. Question?
+Uttar: Answer in 1-2 lines
+2. Question?
+Uttar: Answer in 1-2 lines
+...upto 20
+
+Keep it simple Hindi + English mix. Focus on board exam questions.`;
+
   try {
-    // FREE AI API - No key needed. Agar ye band ho jaye to niche dusra option hai
-    const res = await fetch('https://api.binjie.site/api/generateStream', {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${API_KEY}`, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        prompt: `You are Ask Ashok Sen AI. Give step-by-step solution in Hinglish for: ${q}. Always start with "Step 1:" and explain clearly for Class 10/12 student. End with "Made by Ashok Sen"`,
-        model: "gpt-3.5-turbo"
-      })
+      body: JSON.stringify({contents: [{parts: [{text: prompt}]}]})
     });
-    
-    if(!res.ok) throw new Error('API Error');
-    
-    const data = await res.text();
+
+    const data = await res.json();
     loader.style.display = 'none';
-    addMsg(data + '<br><br><b>— Made by Ashok Sen</b>', 'ai');
-    
+
+    if(data.candidates && data.candidates[0].content){
+      currentPDFContent = data.candidates[0].content.parts[0].text;
+      currentChapter = q;
+
+      answerBox.innerHTML = `<b>✅ PDF Taiyaar Hai!</b><br><br>${currentPDFContent.substring(0,300)}...<br><br><b>⚠️ Poora PDF download karne ke liye niche Ad dekho</b>`;
+      answerBox.classList.add('show');
+      adGate.style.display = 'block';
+    }
   } catch(e) {
     loader.style.display = 'none';
-    addMsg(`<b>Step-by-Step Answer:</b><br><br>Maaf karo bhai, abhi server busy hai 😔<br><br><b>Temporary Solution:</b><br>1. Apna sawal Google pe search karo<br>2. Ya Telegram @StudyResearch2_0 pe pucho<br><br><b>Note:</b> Real AI ke liye backend setup karna padega. Main code de dunga agar chahiye.<br><br><b>— Made by Ashok Sen</b>`, 'ai');
+    alert('Error: API Key ya Net check karo');
   }
+}
+
+function showAd() {
+  // YAHAN REAL AD LAGEGA - FILHAAL DEMO
+  adGate.innerHTML = '<h3>📺 Ad Chal Raha Hai...</h3><p>5 second ruko...</p>';
+
+  setTimeout(() => {
+    adGate.innerHTML = '<h3>✅ Ad Complete!</h3><p>Ab PDF download kar sakte ho</p>';
+    pdfBtn.style.display = 'block';
+  }, 5000); // 5 sec ka fake ad
+
+  // REAL ADS KE LIYE: Yahan Google AdSense ka code lagega
+}
+
+function downloadPDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  // PDF Header
+  doc.setFontSize(20);
+  doc.setTextColor(106, 27, 154);
+  doc.text('Ask Ashok Sen AI - Important Questions', 105, 20, {align: 'center'});
+
+  // Watermark - TERA PROFIT WALA LINE
+  doc.setFontSize(50);
+  doc.setTextColor(200, 200, 200);
+  doc.text('85% IMP', 105, 150, {align: 'center', angle: 45});
+
+  // Content
+  doc.setFontSize(12);
+  doc.setTextColor(0, 0, 0);
+  const lines = doc.splitTextToSize(currentPDFContent, 180);
+  doc.text(lines, 15, 35);
+
+  // Footer
+  doc.setFontSize(10);
+  doc.setTextColor(100, 100, 100);
+  doc.text('Is chapter ke 85% Important Questions | Made by Ashok Sen', 105, 285, {align: 'center'});
+  doc.text('Share karo dosto ke saath ❤️', 105, 290, {align: 'center'});
+
+  doc.save(`${currentChapter}_Imp_Questions.pdf`);
+}
+
+function startVoice() {
+  if(!('webkitSpeechRecognition' in window)) return alert('Chrome use kar');
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = 'hi-IN';
+  recognition.onresult = (e) => { qInput.value = e.results[0][0].transcript; search(); };
+  recognition.start();
 }
 </script>
 </body>
